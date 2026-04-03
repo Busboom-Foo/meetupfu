@@ -42,10 +42,10 @@ echo "  ${DIM}root${RESET}"
 npm install --silent
 
 echo "  ${DIM}server${RESET}"
-npm install --silent --prefix server
+npm install  --prefix server
 
 echo "  ${DIM}client${RESET}"
-npm install --silent --prefix client
+npm install  --prefix client
 
 success "All dependencies installed"
 
