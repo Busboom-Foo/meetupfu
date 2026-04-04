@@ -215,7 +215,7 @@ function NoEventState() {
       <p style={styles.noEventMessage}>
         No upcoming Hour of Micro:bit event is scheduled near you.
       </p>
-      <Link to="/wireframes/class-page" style={styles.requestLink}>
+      <Link to="/class-page" style={styles.requestLink}>
         Request an Event &rarr;
       </Link>
     </div>

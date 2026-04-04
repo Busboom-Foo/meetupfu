@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { mockAvailableDates, MockAvailableDate } from './mock-data';
+import { mockAvailableDates } from './mock-data';
+import type { MockAvailableDate } from './mock-data';
 
 type State = 'initial' | 'expanded' | 'selected';
 
@@ -246,7 +247,7 @@ export default function A1RequestDiscovery() {
       {/* Continue button */}
       <button
         style={{ ...orangeButton, fontSize: 15, padding: '10px 22px' }}
-        onClick={() => navigate('/wireframes/b1-intake')}
+        onClick={() => navigate('/b1-intake')}
       >
         Continue to Request Form &rarr;
       </button>

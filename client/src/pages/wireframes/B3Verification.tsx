@@ -27,7 +27,7 @@ export default function B3Verification() {
 
         <button
           style={styles.dashboardButton}
-          onClick={() => navigate('/wireframes/b4-dashboard')}
+          onClick={() => navigate('/b4-dashboard')}
         >
           View Dashboard →
         </button>

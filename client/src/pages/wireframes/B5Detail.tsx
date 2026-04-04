@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { mockPrimaryRequest, RequestStatus } from './mock-data';
+import { mockPrimaryRequest } from './mock-data';
+import type { RequestStatus } from './mock-data';
 
 type DemoState = 'confirmed' | 'discussing' | 'completed' | 'cancelled';
 

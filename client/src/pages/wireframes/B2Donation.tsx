@@ -56,7 +56,7 @@ export default function B2Donation() {
       <div style={styles.submitRow}>
         <button
           style={styles.submitButton}
-          onClick={() => navigate('/wireframes/b3-verification')}
+          onClick={() => navigate('/b3-verification')}
         >
           Submit Request
         </button>

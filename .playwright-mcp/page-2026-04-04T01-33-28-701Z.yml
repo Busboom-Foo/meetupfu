@@ -1,0 +1,41 @@
+- generic [ref=e3]:
+  - heading "Wireframe Index" [level=1] [ref=e4]
+  - paragraph [ref=e5]: Live mockups of the public-facing screens for the Tech Club Event Request System. Click any page to view it.
+  - generic [ref=e6]:
+    - heading "jointheleague.org (Astro components)" [level=2] [ref=e7]
+    - generic [ref=e8]:
+      - link "Class Page — Hour of Micro:bit Reference page mockup" [ref=e9] [cursor=pointer]:
+        - /url: /class-page
+        - generic [ref=e10]: Class Page — Hour of Micro:bit
+        - generic [ref=e11]: Reference page mockup
+      - 'link "A2: Event Registration Component Standalone view with state toggle" [ref=e12] [cursor=pointer]':
+        - /url: /a2-registration
+        - generic [ref=e13]: "A2: Event Registration Component"
+        - generic [ref=e14]: Standalone view with state toggle
+  - generic [ref=e15]:
+    - heading "Event System App (events.jointheleague.org)" [level=2] [ref=e16]
+    - generic [ref=e17]:
+      - 'link "B1: Request Intake Form Full intake form with site selector" [ref=e18] [cursor=pointer]':
+        - /url: /b1-intake
+        - generic [ref=e19]: "B1: Request Intake Form"
+        - generic [ref=e20]: Full intake form with site selector
+      - 'link "B2: Donation & Confirmation Review card + donation encouragement" [ref=e21] [cursor=pointer]':
+        - /url: /b2-donation
+        - generic [ref=e22]: "B2: Donation & Confirmation"
+        - generic [ref=e23]: Review card + donation encouragement
+      - 'link "B3: Email Verification Holding page" [ref=e24] [cursor=pointer]':
+        - /url: /b3-verification
+        - generic [ref=e25]: "B3: Email Verification"
+        - generic [ref=e26]: Holding page
+      - 'link "B4: Requester Dashboard Request list with status badges" [ref=e27] [cursor=pointer]':
+        - /url: /b4-dashboard
+        - generic [ref=e28]: "B4: Requester Dashboard"
+        - generic [ref=e29]: Request list with status badges
+      - 'link "B5: Event Detail Status-dependent detail with toggle" [ref=e30] [cursor=pointer]':
+        - /url: /b5-detail
+        - generic [ref=e31]: "B5: Event Detail"
+        - generic [ref=e32]: Status-dependent detail with toggle
+      - 'link "B6: Private Event Date Voting Date checkboxes + registration" [ref=e33] [cursor=pointer]':
+        - /url: /b6-voting
+        - generic [ref=e34]: "B6: Private Event Date Voting"
+        - generic [ref=e35]: Date checkboxes + registration

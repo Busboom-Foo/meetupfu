@@ -41,5 +41,3 @@ pids/
 *.pid
 *.seed
 
-# Backup data
-data/

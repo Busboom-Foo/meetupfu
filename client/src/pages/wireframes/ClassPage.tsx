@@ -1,8 +1,273 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LeagueHeader from './components/LeagueHeader';
-import { mockClass } from './mock-data';
+import { mockClass, mockAvailableDates, mockRequestableSlots } from './mock-data';
+import { resolveLocation, haversineDistance } from './zip-data';
 
 const ORANGE = '#ea580c';
 const CONTAINER_MAX = 1000;
+
+// ── Request an Event (interactive component) ─────────────────
+
+function RequestAnEvent() {
+  const [query, setQuery] = useState('');
+  const [searchResult, setSearchResult] = useState<{
+    lat: number; lon: number; label: string;
+    nearby: { slot: typeof mockRequestableSlots[0]; distance: number }[];
+    farther: { slot: typeof mockRequestableSlots[0]; distance: number }[];
+  } | null>(null);
+  const [notFound, setNotFound] = useState(false);
+
+  function handleSearch() {
+    const resolved = resolveLocation(query);
+    if (!resolved) {
+      setSearchResult(null);
+      setNotFound(true);
+      return;
+    }
+    setNotFound(false);
+
+    const withDistance = mockRequestableSlots.map((slot) => ({
+      slot,
+      distance: Math.round(haversineDistance(resolved.lat, resolved.lon, slot.lat, slot.lon)),
+    }));
+    withDistance.sort((a, b) => a.slot.id.localeCompare(b.slot.id)); // sort by date
+
+    setSearchResult({
+      lat: resolved.lat,
+      lon: resolved.lon,
+      label: resolved.label,
+      nearby: withDistance.filter((s) => s.distance <= 15),
+      farther: withDistance.filter((s) => s.distance > 15 && s.distance <= 30),
+    });
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Enter') handleSearch();
+  }
+
+  return (
+    <div style={reqStyles.section}>
+      <h2 style={styles.sectionHeading}>Request an Event</h2>
+      <p style={{ ...styles.bodyText, marginBottom: '20px' }}>
+        Want to bring {mockClass.title.split(' \u2014')[0]} to your community? Enter your
+        zip code or city to find available dates and locations near you.
+      </p>
+
+      <div style={reqStyles.searchRow}>
+        <input
+          type="text"
+          placeholder="Zip code or city name"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          style={reqStyles.searchInput}
+        />
+        <button style={reqStyles.searchButton} onClick={handleSearch}>
+          Find Dates
+        </button>
+      </div>
+
+      {notFound && (
+        <p style={reqStyles.notFound}>
+          We couldn't find that location in San Diego County. Try a 5-digit zip code or neighborhood name.
+        </p>
+      )}
+
+      {searchResult && (
+        <div style={reqStyles.results}>
+          <p style={reqStyles.resultsLabel}>
+            Showing availability near <strong>{searchResult.label}</strong>
+          </p>
+
+          {searchResult.nearby.length > 0 && (
+            <div style={reqStyles.distanceGroup}>
+              <h3 style={reqStyles.distanceHeading}>
+                Within 15 miles
+                <span style={reqStyles.distanceCount}>{searchResult.nearby.length} available</span>
+              </h3>
+              {searchResult.nearby.map(({ slot, distance }) => (
+                <Link key={slot.id} to={`/b1-intake?slot=${slot.id}`} style={reqStyles.slotRow}>
+                  <div style={reqStyles.slotDate}>
+                    <div style={reqStyles.slotDay}>{slot.date.split(',')[0]}</div>
+                    <div style={reqStyles.slotFullDate}>{slot.date.split(', ').slice(1).join(', ')}</div>
+                    <div style={reqStyles.slotTime}>{slot.time}</div>
+                  </div>
+                  <div style={reqStyles.slotLocation}>
+                    <div style={reqStyles.slotNeighborhood}>{slot.neighborhood}</div>
+                    <div style={reqStyles.slotSite}>{slot.siteName}</div>
+                  </div>
+                  <div style={reqStyles.slotDistance}>{distance} mi</div>
+                  <div style={reqStyles.slotAction}>Select &rarr;</div>
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {searchResult.farther.length > 0 && (
+            <div style={reqStyles.distanceGroup}>
+              <h3 style={reqStyles.distanceHeading}>
+                15–30 miles away
+                <span style={reqStyles.distanceCount}>{searchResult.farther.length} available</span>
+              </h3>
+              {searchResult.farther.map(({ slot, distance }) => (
+                <Link key={slot.id} to={`/b1-intake?slot=${slot.id}`} style={reqStyles.slotRow}>
+                  <div style={reqStyles.slotDate}>
+                    <div style={reqStyles.slotDay}>{slot.date.split(',')[0]}</div>
+                    <div style={reqStyles.slotFullDate}>{slot.date.split(', ').slice(1).join(', ')}</div>
+                    <div style={reqStyles.slotTime}>{slot.time}</div>
+                  </div>
+                  <div style={reqStyles.slotLocation}>
+                    <div style={reqStyles.slotNeighborhood}>{slot.neighborhood}</div>
+                    <div style={reqStyles.slotSite}>{slot.siteName}</div>
+                  </div>
+                  <div style={reqStyles.slotDistance}>{distance} mi</div>
+                  <div style={reqStyles.slotAction}>Select &rarr;</div>
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {searchResult.nearby.length === 0 && searchResult.farther.length === 0 && (
+            <p style={reqStyles.noResults}>
+              No available dates within 30 miles. Try a different location or check back later.
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const reqStyles: Record<string, React.CSSProperties> = {
+  section: {
+    marginTop: '48px',
+    paddingTop: '40px',
+    borderTop: '1px solid #e5e7eb',
+  },
+  searchRow: {
+    display: 'flex',
+    gap: '10px',
+    marginBottom: '8px',
+  },
+  searchInput: {
+    flex: 1,
+    maxWidth: '300px',
+    padding: '10px 14px',
+    border: '1px solid #d1d5db',
+    borderRadius: '6px',
+    fontSize: '15px',
+    outline: 'none',
+    color: '#1a1a1a',
+  },
+  searchButton: {
+    padding: '10px 20px',
+    background: ORANGE,
+    color: '#fff',
+    border: 'none',
+    borderRadius: '6px',
+    fontSize: '14px',
+    fontWeight: 600,
+    cursor: 'pointer',
+  },
+  notFound: {
+    color: '#991b1b',
+    fontSize: '14px',
+    marginTop: '12px',
+  },
+  results: {
+    marginTop: '24px',
+  },
+  resultsLabel: {
+    fontSize: '14px',
+    color: '#6b7280',
+    marginBottom: '16px',
+  },
+  noResults: {
+    fontSize: '14px',
+    color: '#6b7280',
+    fontStyle: 'italic',
+    padding: '20px 0',
+  },
+  distanceGroup: {
+    marginBottom: '28px',
+  },
+  distanceHeading: {
+    fontSize: '16px',
+    fontWeight: 700,
+    color: '#374151',
+    margin: '0 0 12px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+  },
+  distanceCount: {
+    fontSize: '12px',
+    fontWeight: 600,
+    color: '#6b7280',
+    background: '#f3f4f6',
+    padding: '2px 8px',
+    borderRadius: '9999px',
+  },
+  slotRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '16px',
+    padding: '14px 16px',
+    borderBottom: '1px solid #f3f4f6',
+    textDecoration: 'none',
+    color: 'inherit',
+  },
+  slotDate: {
+    width: '140px',
+    flexShrink: 0,
+  },
+  slotDay: {
+    fontSize: '12px',
+    fontWeight: 600,
+    color: ORANGE,
+    textTransform: 'uppercase',
+  },
+  slotFullDate: {
+    fontSize: '14px',
+    color: '#1a1a1a',
+    fontWeight: 500,
+  },
+  slotTime: {
+    fontSize: '13px',
+    color: '#6b7280',
+  },
+  slotLocation: {
+    flex: 1,
+    minWidth: 0,
+  },
+  slotNeighborhood: {
+    fontSize: '15px',
+    fontWeight: 600,
+    color: '#1a1a1a',
+    marginBottom: '1px',
+  },
+  slotSite: {
+    fontSize: '13px',
+    color: '#6b7280',
+  },
+  slotDistance: {
+    fontSize: '13px',
+    color: '#9ca3af',
+    width: '50px',
+    textAlign: 'right',
+    flexShrink: 0,
+  },
+  slotAction: {
+    fontSize: '14px',
+    fontWeight: 600,
+    color: ORANGE,
+    whiteSpace: 'nowrap',
+    flexShrink: 0,
+  },
+};
+
+// ── Main Page ─────────────────────────────────────────────────
 
 export default function ClassPage() {
   return (
@@ -78,43 +343,36 @@ export default function ClassPage() {
               </div>
             </div>
 
-            {/* ── A1 Embed Point ───────────────────────────── */}
-            <div style={styles.embedPlaceholder}>
-              <span style={styles.embedLabel}>
-                Request Discovery Component (A1) — implemented in ticket 003
-              </span>
-            </div>
-
-            {/* ── Enroll in Community Programs ─────────────── */}
-            <div style={styles.enrollSection}>
-              <div style={styles.enrollGrid}>
-                <div style={styles.enrollText}>
-                  <h2 style={styles.sectionHeading}>Enroll in Community Programs</h2>
-                  <p style={styles.bodyText}>
-                    Our community programs remove financial and geographic barriers to quality
-                    computer science education. Through partnerships with schools, libraries, and
-                    community centers across San Diego County, we provide free Tech Club workshops,
-                    scholarship opportunities, and outreach initiatives that ensure every student
-                    has access to programming education regardless of their background or resources.
-                  </p>
-                </div>
-                <div style={styles.enrollAction}>
-                  <a
-                    href="https://www.meetup.com/the-league-tech-club"
-                    style={styles.meetupButton}
-                  >
-                    Register For Meetup Events
-                  </a>
-                </div>
+            {/* ── Scheduled Events ─────────────────────────── */}
+            <div style={styles.eventsSection}>
+              <h2 style={styles.sectionHeading}>Upcoming Events</h2>
+              <p style={{ ...styles.bodyText, marginBottom: '20px' }}>
+                These sessions are already scheduled. Click to register.
+              </p>
+              <div style={styles.eventsList}>
+                {mockAvailableDates.map((evt) => (
+                  <Link key={evt.id} to="/a2-registration" style={styles.eventRow}>
+                    <div style={styles.eventDateBlock}>
+                      <div style={styles.eventDay}>{evt.date.split(',')[0]}</div>
+                      <div style={styles.eventFullDate}>{evt.date.split(', ').slice(1).join(', ')}</div>
+                    </div>
+                    <div style={styles.eventDetails}>
+                      <div style={styles.eventName}>
+                        {evt.className}
+                        {evt.full && <span style={styles.fullBadge}>Full</span>}
+                      </div>
+                      <div style={styles.eventMeta}>{evt.time} &middot; {evt.area}</div>
+                    </div>
+                    <div style={evt.full ? styles.eventActionWaitlist : styles.eventAction}>
+                      {evt.full ? 'Join Waitlist \u2192' : 'Register \u2192'}
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
 
-            {/* ── A2 Embed Point ───────────────────────────── */}
-            <div style={styles.embedPlaceholder}>
-              <span style={styles.embedLabel}>
-                Event Registration Component (A2) — implemented in ticket 004
-              </span>
-            </div>
+            {/* ── Request an Event ─────────────────────────── */}
+            <RequestAnEvent />
           </div>
         </section>
       </main>
@@ -396,54 +654,82 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.5,
   },
 
-  // ── Embed Placeholders ────────────────────────────────────────
-  embedPlaceholder: {
-    marginTop: '48px',
-    padding: '32px 24px',
-    border: '2px dashed #d1d5db',
-    borderRadius: '8px',
-    background: '#f9fafb',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  embedLabel: {
-    fontSize: '14px',
-    color: '#6b7280',
-    fontStyle: 'italic',
-  },
-
-  // ── Enroll Section ────────────────────────────────────────────
-  enrollSection: {
+  // ── Scheduled Events ──────────────────────────────────────────
+  eventsSection: {
     marginTop: '48px',
     paddingTop: '40px',
     borderTop: '1px solid #e5e7eb',
   },
-  enrollGrid: {
+  eventsList: {
     display: 'flex',
-    gap: '40px',
-    alignItems: 'flex-start',
+    flexDirection: 'column',
+    gap: '0',
   },
-  enrollText: {
-    flex: 1,
-  },
-  enrollAction: {
-    flexShrink: 0,
+  eventRow: {
     display: 'flex',
-    alignItems: 'flex-start',
-    paddingTop: '48px',
-  },
-  meetupButton: {
-    display: 'inline-block',
-    background: ORANGE,
-    color: '#fff',
-    padding: '12px 24px',
-    borderRadius: '6px',
+    alignItems: 'center',
+    gap: '20px',
+    padding: '16px 20px',
+    borderBottom: '1px solid #f3f4f6',
     textDecoration: 'none',
-    fontWeight: 600,
-    fontSize: '15px',
-    whiteSpace: 'nowrap',
+    color: 'inherit',
+    transition: 'background 0.1s',
   },
+  eventDateBlock: {
+    width: '120px',
+    flexShrink: 0,
+  },
+  eventDay: {
+    fontSize: '13px',
+    fontWeight: 600,
+    color: ORANGE,
+    textTransform: 'uppercase',
+  },
+  eventFullDate: {
+    fontSize: '14px',
+    color: '#374151',
+    fontWeight: 500,
+  },
+  eventDetails: {
+    flex: 1,
+    minWidth: 0,
+  },
+  eventName: {
+    fontSize: '15px',
+    fontWeight: 700,
+    color: '#1a1a1a',
+    marginBottom: '2px',
+  },
+  eventMeta: {
+    fontSize: '14px',
+    color: '#6b7280',
+  },
+  eventAction: {
+    fontSize: '14px',
+    fontWeight: 600,
+    color: ORANGE,
+    whiteSpace: 'nowrap',
+    flexShrink: 0,
+  },
+  eventActionWaitlist: {
+    fontSize: '14px',
+    fontWeight: 600,
+    color: '#6b7280',
+    whiteSpace: 'nowrap',
+    flexShrink: 0,
+  },
+  fullBadge: {
+    display: 'inline-block',
+    marginLeft: '8px',
+    fontSize: '11px',
+    fontWeight: 600,
+    color: '#991b1b',
+    background: '#fee2e2',
+    padding: '1px 8px',
+    borderRadius: '9999px',
+    verticalAlign: 'middle',
+  },
+
 
   // ── Footer ────────────────────────────────────────────────────
   footer: {

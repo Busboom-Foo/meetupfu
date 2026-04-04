@@ -1,0 +1,185 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - navigation "Utility" [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "(858) 284-0481" [ref=e8] [cursor=pointer]:
+              - /url: tel:18582840481
+              - img [ref=e9]
+              - generic [ref=e11]: (858) 284-0481
+          - listitem [ref=e12]:
+            - link "Location & Contact" [ref=e13] [cursor=pointer]:
+              - /url: /about/locations/
+              - img [ref=e14]
+              - generic [ref=e17]: Location & Contact
+              - img [ref=e18]
+          - listitem [ref=e20]:
+            - link "Client Portal" [ref=e21] [cursor=pointer]:
+              - /url: /about/client-portal/
+              - img [ref=e22]
+              - generic [ref=e26]: Client Portal
+      - button "Search" [ref=e28] [cursor=pointer]:
+        - img [ref=e29]
+    - generic [ref=e33]:
+      - link "The LEAGUE of Amazing Programmers logo" [ref=e34] [cursor=pointer]:
+        - /url: /
+        - img "The LEAGUE of Amazing Programmers logo" [ref=e35]
+      - navigation "Main navigation" [ref=e36]:
+        - list [ref=e37]:
+          - listitem [ref=e38]:
+            - link "Home" [ref=e39] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e40]:
+            - link "Programs" [ref=e41] [cursor=pointer]:
+              - /url: /programs/
+          - listitem [ref=e42]:
+            - link "Classes" [ref=e43] [cursor=pointer]:
+              - /url: /classes/
+          - listitem [ref=e44]:
+            - link "About" [ref=e45] [cursor=pointer]:
+              - /url: /about/
+              - generic [ref=e46]: About
+              - img [ref=e47]
+          - listitem [ref=e49]:
+            - link "Impact" [ref=e50] [cursor=pointer]:
+              - /url: /about/impact/
+          - listitem [ref=e51]:
+            - link "Support" [ref=e52] [cursor=pointer]:
+              - /url: /support/
+          - listitem [ref=e53]:
+            - link "Curriculum" [ref=e54] [cursor=pointer]:
+              - /url: https://curriculum.jointheleague.org/
+      - generic [ref=e55]:
+        - link "Donate" [ref=e56] [cursor=pointer]:
+          - /url: https://secure.givelively.org/donate/the-league-of-amazing-programmers
+        - link "Volunteer" [ref=e57] [cursor=pointer]:
+          - /url: https://ideali.st/6FVfwP
+  - main [ref=e58]:
+    - article [ref=e59]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - heading "Hour of Micro:bit — Meetup" [level=1] [ref=e66]
+          - paragraph [ref=e67]: Students experiment with LEDs, sensors, and radio communications to see how code controls physical hardware.
+        - img "Hour of Micro:bit — Meetup illustration" [ref=e70]
+      - generic [ref=e71]:
+        - generic [ref=e74]:
+          - heading "Course Overview" [level=2] [ref=e76]
+          - generic [ref=e77]:
+            - generic [ref=e79]: Hour of Micro:bit is a gentle introduction to physical computing using the BBC Micro:bit, a pocket-sized programmable computer. In this short workshop, students write programs to control the Micro:bit’s LED display, buttons, sensors, and radio communication capabilities. The Micro:bit’s approachable interface and immediate physical feedback make it perfect for beginners to understand how code controls hardware. This course serves as both a standalone introduction to microcontrollers and as preparation for our more advanced robotics courses. Students leave with a concrete understanding of how programming translates to real-world actions.
+            - complementary [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - generic [ref=e83]: Level
+                  - generic [ref=e84]: beginner
+                - generic [ref=e85]:
+                  - generic [ref=e86]: Topics
+                  - list [ref=e87]:
+                    - listitem [ref=e88]: microcontrollers
+                    - listitem [ref=e89]: electronics
+                    - listitem [ref=e90]: programming
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Curriculum
+                  - link "View Curriculum" [ref=e93] [cursor=pointer]:
+                    - /url: https://league-curriculum.github.io/HourofMicrobit/
+        - generic [ref=e96]:
+          - heading "Part of These Programs" [level=3] [ref=e97]
+          - generic [ref=e100]:
+            - link "Robot Garage Robot Garage Hands-on electronics, robotics, and fabrication projects for students of any level." [ref=e101] [cursor=pointer]:
+              - /url: /programs/robot-garage-program
+              - img "Robot Garage" [ref=e103]
+              - generic [ref=e104]:
+                - heading "Robot Garage" [level=4] [ref=e106]
+                - paragraph [ref=e107]: Hands-on electronics, robotics, and fabrication projects for students of any level.
+            - link "Tech Club Tech Club Free introductory classes in Python, Java, robotics, and electronics offered at schools, libraries and online" [ref=e108] [cursor=pointer]:
+              - /url: /programs/tech-club
+              - img "Tech Club" [ref=e110]
+              - generic [ref=e111]:
+                - heading "Tech Club" [level=4] [ref=e113]
+                - paragraph [ref=e114]: Free introductory classes in Python, Java, robotics, and electronics offered at schools, libraries and online
+        - generic [ref=e115]:
+          - heading "Enroll in Community Programs" [level=2] [ref=e119]
+          - generic [ref=e124]:
+            - generic [ref=e126]: Our community programs remove financial and geographic barriers to quality computer science education. Through partnerships with schools, libraries, and community centers across San Diego County, we provide free Tech Club workshops, scholarship opportunities, and outreach initiatives that ensure every student has access to programming education regardless of their background or resources.
+            - link "Register For Meetup Events" [ref=e129] [cursor=pointer]:
+              - /url: https://www.meetup.com/the-league-tech-club
+              - generic [ref=e130]: Register For Meetup Events
+  - contentinfo [ref=e131]:
+    - generic [ref=e132]:
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - heading "The LEAGUE" [level=3] [ref=e135]
+          - paragraph [ref=e136]: We prepare young people for the science and technology careers of the 21st century through real coding education, professional mentorship, and project-based learning.
+          - paragraph [ref=e137]: "501(c)(3) Tax ID: 20-4744610."
+        - generic [ref=e138]:
+          - heading "Visit & Contact" [level=4] [ref=e139]
+          - generic [ref=e140]:
+            - paragraph [ref=e141]:
+              - text: "12625 High Bluff Drive #113, San Diego, CA 92130"
+              - link "Get directions" [ref=e142] [cursor=pointer]:
+                - /url: https://goo.gl/maps/GUdss2BayCqGmDCLA
+            - paragraph [ref=e143]:
+              - link "(858) 284-0481" [ref=e144] [cursor=pointer]:
+                - /url: tel:18582840481
+              - link "info@jointheleague.org" [ref=e145] [cursor=pointer]:
+                - /url: mailto:info@jointheleague.org
+        - generic [ref=e146]:
+          - heading "Stay Connected" [level=4] [ref=e147]
+          - list [ref=e148]:
+            - listitem [ref=e149]:
+              - link "Facebook" [ref=e150] [cursor=pointer]:
+                - /url: https://www.facebook.com/LeagueOfAmazingProgrammers
+                - img [ref=e151]
+            - listitem [ref=e153]:
+              - link "Twitter" [ref=e154] [cursor=pointer]:
+                - /url: https://twitter.com/LEAGUEofAmazing
+                - img [ref=e155]
+            - listitem [ref=e157]:
+              - link "Instagram" [ref=e158] [cursor=pointer]:
+                - /url: https://www.instagram.com/theleagueofamazingprogrammers/
+                - img [ref=e159]
+            - listitem [ref=e163]:
+              - link "YouTube" [ref=e164] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A
+                - img [ref=e165]
+            - listitem [ref=e169]:
+              - link "LinkedIn" [ref=e170] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/the-league-of-amazing-programmers
+                - img [ref=e171]
+      - navigation "Footer navigation" [ref=e175]:
+        - list [ref=e176]:
+          - listitem [ref=e177]:
+            - link "Home" [ref=e178] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e179]:
+            - link "About" [ref=e180] [cursor=pointer]:
+              - /url: /about/
+          - listitem [ref=e181]:
+            - link "Impact" [ref=e182] [cursor=pointer]:
+              - /url: /about/impact/
+          - listitem [ref=e183]:
+            - link "News" [ref=e184] [cursor=pointer]:
+              - /url: /news/
+          - listitem [ref=e185]:
+            - link "Classes" [ref=e186] [cursor=pointer]:
+              - /url: /classes/
+          - listitem [ref=e187]:
+            - link "Policies" [ref=e188] [cursor=pointer]:
+              - /url: /about/policies/
+          - listitem [ref=e189]:
+            - link "Support" [ref=e190] [cursor=pointer]:
+              - /url: /support/
+          - listitem [ref=e191]:
+            - link "Volunteer" [ref=e192] [cursor=pointer]:
+              - /url: /support/volunteer/
+          - listitem [ref=e193]:
+            - link "Create a Fundraiser" [ref=e194] [cursor=pointer]:
+              - /url: /donate/create-a-fundraiser/
+          - listitem [ref=e195]:
+            - link "Curriculum" [ref=e196] [cursor=pointer]:
+              - /url: https://curriculum.jointheleague.org/
+      - generic [ref=e197]:
+        - generic [ref=e198]: © 2026 The LEAGUE of Amazing Programmers. v1.20260226.2
+        - link "Links Page" [ref=e200] [cursor=pointer]:
+          - /url: /d/hour-of-microbit-meetup
+          - text: <X>

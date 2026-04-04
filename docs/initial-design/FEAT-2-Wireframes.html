@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FEAT-2 Wireframes — Tech Club Event Request System</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f7f7f5;
+    --bg3: #eeeee9;
+    --text: #1a1a1a;
+    --text2: #6b6b6b;
+    --text3: #999;
+    --border: #e0e0dc;
+    --accent: #1a6b4a;
+    --accent-bg: #e8f5ee;
+    --accent-text: #14553a;
+    --info: #2563a8;
+    --info-bg: #e8f0fb;
+    --info-text: #1a4a80;
+    --warn: #b45309;
+    --warn-bg: #fef3e2;
+    --warn-text: #854005;
+    --danger: #c53030;
+    --danger-bg: #fde8e8;
+    --danger-text: #9b2020;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --font: 'DM Sans', system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font); background: var(--bg2); color: var(--text); line-height: 1.5; }
+
+  .header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header h1 { font-size: 16px; font-weight: 600; }
+  .header p { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    overflow-x: auto;
+    position: sticky; top: 58px; z-index: 99;
+  }
+  .tab-bar button {
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 10px 14px;
+    border: none;
+    background: none;
+    color: var(--text2);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .tab-bar button:hover { color: var(--text); }
+  .tab-bar button.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 500; }
+
+  .screen { display: none; padding: 24px; max-width: 800px; margin: 0 auto; }
+  .screen.active { display: block; }
+
+  .screen-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent-text);
+    background: var(--accent-bg);
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .screen-host {
+    font-size: 11px;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+  .card h3 { font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+  .card p { font-size: 13px; color: var(--text2); }
+  .card p + p { margin-top: 4px; }
+
+  .form-row { display: flex; gap: 10px; margin-bottom: 12px; }
+  .form-row > div { flex: 1; }
+  .form-row > div.narrow { flex: 0 0 100px; }
+  .form-row > div.med { flex: 0 0 140px; }
+
+  label.field-label {
+    font-size: 11px;
+    color: var(--text2);
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 500;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+    font-family: var(--font);
+    font-size: 13px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input:focus, select:focus { border-color: var(--accent); }
+  input[readonly] { color: var(--text3); background: var(--bg2); }
+
+  .btn {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 18px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    width: 100%;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    background: var(--bg2);
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+  .btn-small {
+    font-size: 11px;
+    padding: 4px 10px;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: var(--radius);
+    display: inline-block;
+  }
+  .badge-info { background: var(--info-bg); color: var(--info-text); }
+  .badge-success { background: var(--accent-bg); color: var(--accent-text); }
+  .badge-warn { background: var(--warn-bg); color: var(--warn-text); }
+  .badge-danger { background: var(--danger-bg); color: var(--danger-text); }
+
+  .meta { background: var(--bg2); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 16px; }
+  .meta-row { font-size: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .meta-row span.label { color: var(--text3); }
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .list-item:last-child { border-bottom: none; }
+  .list-item .title { font-size: 13px; font-weight: 500; color: var(--text); }
+  .list-item .sub { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  .list-bordered {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .checkbox-row input { width: 15px; height: 15px; }
+
+  .app-shell {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    min-height: 540px;
+    background: var(--bg);
+  }
+  .sidebar {
+    width: 170px;
+    min-width: 170px;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  .sidebar .brand { padding: 10px 14px; margin-bottom: 6px; }
+  .sidebar .brand p { font-size: 12px; font-weight: 600; color: var(--text); }
+  .sidebar .brand small { font-size: 10px; color: var(--text3); }
+  .sidebar .nav-item {
+    padding: 7px 14px;
+    font-size: 12px;
+    color: var(--text2);
+    cursor: pointer;
+  }
+  .sidebar .nav-item.active {
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 500;
+    border-left: 2px solid var(--text);
+  }
+  .main-content { flex: 1; padding: 24px; overflow-y: auto; }
+
+  .notice {
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+  }
+  .notice-success { background: var(--accent-bg); color: var(--accent-text); }
+  .notice-warn { background: var(--warn-bg); color: var(--warn-text); }
+  .notice-info { background: var(--info-bg); color: var(--info-text); }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .stat-card { background: var(--bg2); border-radius: var(--radius); padding: 10px 12px; text-align: center; }
+  .stat-card .num { font-size: 22px; font-weight: 600; color: var(--text); }
+  .stat-card .label { font-size: 10px; color: var(--text3); margin-top: 2px; }
+
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 14px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -20px; top: 3px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--bg2);
+  }
+  .tl-dot.current { border-color: var(--accent); background: var(--accent-bg); }
+  .tl-item .tl-label { font-size: 12px; color: var(--text2); }
+  .tl-item .tl-date { font-size: 10px; color: var(--text3); margin-top: 1px; }
+
+  .link-text { color: var(--info); cursor: pointer; }
+  .code-inline {
+    font-size: 10px;
+    font-family: monospace;
+    background: var(--bg2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text3);
+  }
+  .center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    padding: 2rem;
+  }
+  .divider { border-top: 1px solid var(--border); margin: 14px 0; }
+  .text-hint { font-size: 11px; color: var(--text3); margin-top: 8px; text-align: center; }
+
+  @media (max-width: 640px) {
+    .sidebar { width: 0; min-width: 0; display: none; }
+    .form-row { flex-direction: column; }
+    .form-row > div.narrow, .form-row > div.med { flex: 1; }
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>FEAT-2 Wireframes — Tech Club Event Request System</h1>
+  <p>Public-facing screens for requesters and attendees. April 2026.</p>
+</div>
+
+<div class="tab-bar" id="tabBar">
+  <button class="active" data-screen="a1">A1: Discovery</button>
+  <button data-screen="a2">A2: Registration</button>
+  <button data-screen="b1">B1: Intake form</button>
+  <button data-screen="b2">B2: Donation</button>
+  <button data-screen="b3">B3: Verification</button>
+  <button data-screen="b4">B4: Dashboard</button>
+  <button data-screen="b5">B5: Event detail</button>
+  <button data-screen="b6">B6: Date voting</button>
+</div>
+
+<!-- ==================== SCREEN A1 ==================== -->
+<div class="screen active" id="screen-a1">
+  <span class="screen-label">Screen A1 — Request discovery component</span>
+  <p class="screen-host">Astro component · Embedded on class pages and free-events listings on jointheleague.org · No app chrome</p>
+
+  <div class="card">
+    <h2>Request a free Tech Club event</h2>
+    <p style="margin-bottom: 14px;">Enter your zip code to see available Tech Club events near you.</p>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <input type="text" id="a1-zip" placeholder="Zip code" maxlength="5" style="width: 120px;" />
+      <button class="btn btn-secondary" id="a1-zip-btn">Search</button>
+    </div>
+  </div>
+
+  <div id="a1-results" style="display: none;">
+    <div class="card">
+      <h3>Upcoming confirmed events near <span id="a1-zip-display"></span></h3>
+      <div class="list-bordered">
+        <div class="list-item">
+          <div>
+            <div class="title">Python game design</div>
+            <div class="sub">Sat, Apr 12 · 10:00 AM · Carmel Mountain Ranch Library</div>
+          </div>
+          <span class="badge badge-info">Register</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="title">Intro to robotics</div>
+            <div class="sub">Sat, Apr 19 · 1:00 PM · Elementary Institute of Science</div>
+          </div>
+          <span class="badge badge-info">Register</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Available dates to request</h3>
+      <p style="margin-bottom: 12px;">Select a date to request this class for your group.</p>
+      <div class="list-bordered" id="a1-slots"></div>
+    </div>
+  </div>
+
+  <div id="a1-selected" style="display: none;" class="card">
+    <h3>You selected:</h3>
+    <p id="a1-selected-summary" style="margin-bottom: 14px;"></p>
+
+    <label class="checkbox-row" style="margin-bottom: 14px; border: none; padding: 0;">
+      <input type="checkbox" id="a1-private" />
+      <span>This is a private event</span>
+    </label>
+
+    <div id="a1-private-notice" style="display: none;" class="notice notice-warn">
+      <strong>Private event requirements:</strong> Minimum 8 attendees. Available to school groups, scout troops (Girl Scouts, BSA), libraries, and youth organizations. Not available for birthday parties or social gatherings.
+    </div>
+
+    <div style="margin-bottom: 14px;">
+      <label class="field-label">Your email</label>
+      <input type="email" placeholder="parent@example.com" />
+    </div>
+
+    <button class="btn btn-primary">Continue to request form →</button>
+    <p class="text-hint">You'll complete your request on events.jointheleague.org</p>
+  </div>
+
+  <div id="a1-nocoverage" style="display: none;" class="card">
+    <h3>No instructors available in your area</h3>
+    <p>We don't currently have instructors covering <span id="a1-nozip"></span>. Check back later or try a different class — availability changes as new volunteers sign up.</p>
+  </div>
+</div>
+
+<!-- ==================== SCREEN A2 ==================== -->
+<div class="screen" id="screen-a2">
+  <span class="screen-label">Screen A2 — Event registration component</span>
+  <p class="screen-host">Astro component · Embedded on individual class pages on jointheleague.org · Three states</p>
+
+  <div style="display: flex; gap: 0; margin-bottom: 0;">
+    <button class="btn btn-secondary a2-tab" data-state="open" style="flex: 1; border-radius: var(--radius) var(--radius) 0 0; font-weight: 500; color: var(--text); background: var(--bg);">Registration open</button>
+    <button class="btn btn-secondary a2-tab" data-state="full" style="flex: 1; border-radius: var(--radius) var(--radius) 0 0;">Registration full</button>
+    <button class="btn btn-secondary a2-tab" data-state="none" style="flex: 1; border-radius: var(--radius) var(--radius) 0 0;">No event</button>
+  </div>
+
+  <div id="a2-open" class="card" style="border-radius: 0 0 var(--radius-lg) var(--radius-lg); margin-top: 0;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+      <div>
+        <h2>Python game design</h2>
+        <p>Saturday, April 26 · 3:30–5:00 PM</p>
+        <p>Carmel Mountain Ranch Library</p>
+      </div>
+      <span class="badge badge-success">12 spots left</span>
+    </div>
+    <div class="divider"></div>
+    <h3>Register your child</h3>
+    <div class="form-row">
+      <div><label class="field-label">Guardian name</label><input type="text" placeholder="Your full name" /></div>
+    </div>
+    <div class="form-row">
+      <div><label class="field-label">Email</label><input type="email" placeholder="you@example.com" /></div>
+      <div><label class="field-label">Phone</label><input type="tel" placeholder="(858) 555-0123" /></div>
+    </div>
+    <div id="a2-children">
+      <div class="form-row">
+        <div><label class="field-label">Child's name</label><input type="text" placeholder="Child's full name" /></div>
+        <div class="narrow"><label class="field-label">Age</label><input type="number" placeholder="10" min="5" max="18" /></div>
+      </div>
+    </div>
+    <p style="margin-bottom: 12px;"><span class="link-text" id="a2-add-child">+ Add another child</span></p>
+    <label class="checkbox-row" style="border: none; padding: 0; margin-bottom: 14px;">
+      <input type="checkbox" /> <span>I'm volunteering (attending without children)</span>
+    </label>
+    <button class="btn btn-primary">Register</button>
+    <p class="text-hint">Also listed on <span class="link-text">Meetup</span></p>
+  </div>
+
+  <div id="a2-full" style="display: none;" class="card" style="border-radius: 0 0 var(--radius-lg) var(--radius-lg);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
+      <div>
+        <h2>Python game design</h2>
+        <p>Saturday, April 26 · 3:30–5:00 PM</p>
+        <p>Carmel Mountain Ranch Library</p>
+      </div>
+      <span class="badge badge-warn">Event full</span>
+    </div>
+    <div class="divider"></div>
+    <p style="margin-bottom: 12px;">This event has reached capacity. Join the waitlist and we'll notify you if a spot opens up.</p>
+    <div class="form-row">
+      <div><label class="field-label">Name</label><input type="text" placeholder="Your name" /></div>
+      <div><label class="field-label">Email</label><input type="email" placeholder="you@example.com" /></div>
+    </div>
+    <button class="btn btn-primary">Join waitlist</button>
+    <p class="text-hint">Also listed on <span class="link-text">Meetup</span></p>
+  </div>
+
+  <div id="a2-none" style="display: none;" class="card" style="border-radius: 0 0 var(--radius-lg) var(--radius-lg); text-align: center;">
+    <div style="text-align: center; padding: 24px 0;">
+      <h2>No upcoming Python game design event</h2>
+      <p style="margin: 8px 0 16px;">Want to bring this class to your community? Request a free event and we'll match you with an instructor.</p>
+      <button class="btn btn-primary" style="width: auto; padding: 10px 28px;">Request this event for your group</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN B1 ==================== -->
+<div class="screen" id="screen-b1">
+  <span class="screen-label">Screen B1 — Request intake form</span>
+  <p class="screen-host">events.jointheleague.org · Left-nav app shell · After handoff from A1</p>
+
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="brand"><p>Tech Club Events</p><small>jointheleague.org</small></div>
+      <div class="nav-item active">New request</div>
+      <div class="nav-item">My requests</div>
+      <div class="nav-item">Help / FAQ</div>
+    </div>
+    <div class="main-content">
+      <h2 style="margin-bottom: 4px;">Complete your event request</h2>
+      <p style="margin-bottom: 16px;">Almost there — fill in the details below.</p>
+
+      <div class="meta" style="margin-bottom: 16px;">
+        <div class="meta-row">
+          <div><span class="label">Class:</span> <strong>Python game design</strong></div>
+          <div><span class="label">Date:</span> Sat, Apr 26, 3:30 PM</div>
+          <div><span class="label">Zip:</span> 92128</div>
+          <div><span class="label">Type:</span> Public</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div><label class="field-label">Your name</label><input type="text" placeholder="Full name" /></div>
+        <div><label class="field-label">Email (pre-filled)</label><input type="email" value="parent@example.com" readonly /></div>
+      </div>
+      <div class="form-row">
+        <div><label class="field-label">Group type</label>
+          <select>
+            <option>Public (open to anyone)</option>
+            <option>School</option>
+            <option>Girl Scout troop</option>
+            <option>BSA troop</option>
+            <option>Library</option>
+            <option>Other youth group</option>
+          </select>
+        </div>
+        <div class="med"><label class="field-label">Expected headcount</label><input type="number" placeholder="20" min="1" /></div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label class="field-label">Site / location</label>
+        <select id="b1-site">
+          <option value="">Select a registered site...</option>
+          <option value="cmrl">Carmel Mountain Ranch Library</option>
+          <option value="eis">Elementary Institute of Science</option>
+          <option value="rbl">Rancho Bernardo Library</option>
+          <option value="custom">My location isn't listed</option>
+        </select>
+      </div>
+      <div id="b1-site-details" style="display: none;" class="meta">
+        <p style="font-size: 11px; color: var(--text3); font-weight: 500; margin-bottom: 4px;">Site details</p>
+        <p style="font-size: 12px;">Room capacity: 30 · WiFi: Yes · Projector: Yes · Power outlets: 12</p>
+      </div>
+      <div id="b1-custom-addr" style="display: none; margin-bottom: 12px;">
+        <label class="field-label">Location address</label>
+        <input type="text" placeholder="Enter full address" />
+      </div>
+      <div class="form-row">
+        <div><label class="field-label">Site readiness</label>
+          <select><option>Ready to go</option><option>Needs some setup</option><option>Not sure</option></select>
+        </div>
+        <div><label class="field-label">Can you help promote?</label>
+          <select><option>Yes, I can share with families</option><option>Somewhat</option><option>No</option></select>
+        </div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label class="field-label">Additional contacts <span style="color: var(--text3);">(optional)</span></label>
+        <input type="text" placeholder="e.g. principal@school.edu" />
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label class="field-label">External registration URL <span style="color: var(--text3);">(optional)</span></label>
+        <input type="text" placeholder="https://library.example.com/events/..." />
+      </div>
+      <button class="btn btn-primary">Review & submit</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN B2 ==================== -->
+<div class="screen" id="screen-b2">
+  <span class="screen-label">Screen B2 — Donation & confirmation</span>
+  <p class="screen-host">events.jointheleague.org · Left-nav app shell · FEAT-3 donation touchpoint</p>
+
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="brand"><p>Tech Club Events</p><small>jointheleague.org</small></div>
+      <div class="nav-item active">New request</div>
+      <div class="nav-item">My requests</div>
+      <div class="nav-item">Help / FAQ</div>
+    </div>
+    <div class="main-content">
+      <h2 style="margin-bottom: 16px;">Review & submit your request</h2>
+
+      <div class="meta" style="margin-bottom: 16px;">
+        <p style="font-size: 11px; color: var(--text3); font-weight: 500; margin-bottom: 6px;">Request summary</p>
+        <div style="font-size: 12px; line-height: 1.9;">
+          <div><span style="color: var(--text3); display: inline-block; width: 80px;">Class</span> Python game design</div>
+          <div><span style="color: var(--text3); display: inline-block; width: 80px;">Date</span> Saturday, April 26 at 3:30 PM</div>
+          <div><span style="color: var(--text3); display: inline-block; width: 80px;">Location</span> Carmel Mountain Ranch Library</div>
+          <div><span style="color: var(--text3); display: inline-block; width: 80px;">Group</span> Public (open to anyone)</div>
+          <div><span style="color: var(--text3); display: inline-block; width: 80px;">Headcount</span> ~20 kids</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <h3>Help make this event happen</h3>
+        <p style="margin-bottom: 12px; line-height: 1.6;">It costs the League approximately <strong style="color: var(--text);">$150</strong> to run a Tech Club event — covering instructor time, equipment, and curriculum materials. Your donation keeps these events free for every family.</p>
+        <a href="#" style="display: inline-block; padding: 8px 18px; background: var(--accent-bg); color: var(--accent-text); border-radius: var(--radius); font-size: 13px; font-weight: 500; text-decoration: none;">Donate via Give Lively</a>
+        <p style="font-size: 11px; color: var(--text3); margin-top: 8px;">Donations are not required. You can also donate after the event.</p>
+      </div>
+
+      <button class="btn btn-primary">Submit request</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN B3 ==================== -->
+<div class="screen" id="screen-b3">
+  <span class="screen-label">Screen B3 — Email verification</span>
+  <p class="screen-host">events.jointheleague.org · Left-nav app shell · 1-hour verification window</p>
+
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="brand"><p>Tech Club Events</p><small>jointheleague.org</small></div>
+      <div class="nav-item">New request</div>
+      <div class="nav-item">My requests</div>
+      <div class="nav-item">Help / FAQ</div>
+    </div>
+    <div class="center-content">
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--info-bg); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--info)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+        </div>
+        <h2 style="margin-bottom: 8px;">Check your email to verify your request</h2>
+        <p style="margin-bottom: 4px;">We sent a verification link to <strong>parent@example.com</strong></p>
+        <p style="font-size: 12px; color: var(--text3); margin-bottom: 20px;">The link expires in 1 hour. Check your spam folder if you don't see it.</p>
+        <button class="btn btn-secondary">Resend verification email</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN B4 ==================== -->
+<div class="screen" id="screen-b4">
+  <span class="screen-label">Screen B4 — Requester dashboard</span>
+  <p class="screen-host">events.jointheleague.org · Left-nav app shell · Magic link auth · Soft cap: 10 active requests</p>
+
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="brand"><p>Tech Club Events</p><small>jointheleague.org</small></div>
+      <div class="nav-item">New request</div>
+      <div class="nav-item active">My requests</div>
+      <div class="nav-item">Help / FAQ</div>
+    </div>
+    <div class="main-content">
+      <div class="notice notice-success" style="margin-bottom: 16px; font-weight: 500;">Your request has been verified and submitted.</div>
+
+      <h2 style="margin-bottom: 14px;">My requests</h2>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="font-size: 14px; font-weight: 500;">Python game design</div>
+            <p>Sat, Apr 26 · 3:30 PM · Carmel Mountain Ranch Library</p>
+          </div>
+          <span class="badge badge-info">New</span>
+        </div>
+        <div class="divider"></div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <p style="font-size: 11px;">Submitted just now · Public event</p>
+          <span class="link-text" style="font-size: 12px;">View details →</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="font-size: 14px; font-weight: 500;">Intro to robotics</div>
+            <p>Sat, Mar 22 · 10:00 AM · Elementary Institute of Science</p>
+          </div>
+          <span class="badge badge-success">Confirmed</span>
+        </div>
+        <div class="divider"></div>
+        <div style="margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+          <p style="font-size: 11px;">14 kids registered · Private event</p>
+          <span class="link-text" style="font-size: 12px;">View details →</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 11px; color: var(--text2);">Registration link:</span>
+          <span class="code-inline">events.jointheleague.org/r/abc123</span>
+          <button class="btn-small">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN B5 ==================== -->
+<div class="screen" id="screen-b5">
+  <span class="screen-label">Screen B5 — Event detail / status page</span>
+  <p class="screen-host">events.jointheleague.org · Left-nav app shell · Confirmed state shown</p>
+
+  <div class="app-shell">
+    <div class="sidebar">
+      <div class="brand"><p>Tech Club Events</p><small>jointheleague.org</small></div>
+      <div class="nav-item">New request</div>
+      <div class="nav-item active">My requests</div>
+      <div class="nav-item">Help / FAQ</div>
+    </div>
+    <div class="main-content">
+      <p style="font-size: 12px; color: var(--text3); margin-bottom: 4px; cursor: pointer;">← Back to my requests</p>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <h2>Intro to robotics</h2>
+        <span class="badge badge-success">Confirmed</span>
+      </div>
+
+      <div class="stat-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+        <div class="stat-card">
+          <div style="font-size: 11px; color: var(--text3);">Date & time</div>
+          <div style="font-size: 13px; font-weight: 500; margin-top: 4px;">Sat, Mar 22<br>10:00 AM</div>
+        </div>
+        <div class="stat-card">
+          <div style="font-size: 11px; color: var(--text3);">Instructor</div>
+          <div style="font-size: 13px; font-weight: 500; margin-top: 4px;">Kevin L.</div>
+        </div>
+        <div class="stat-card">
+          <div style="font-size: 11px; color: var(--text3);">Location</div>
+          <div style="font-size: 13px; font-weight: 500; margin-top: 4px;">Elementary Inst. of Science</div>
+        </div>
+        <div class="stat-card">
+          <div style="font-size: 11px; color: var(--text3);">Type</div>
+          <div style="font-size: 13px; font-weight: 500; margin-top: 4px;">Private (BSA)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Registration</h3>
+        <div class="stat-grid" style="margin-top: 10px;">
+          <div class="stat-card"><div class="num">14</div><div class="label">kids registered</div></div>
+          <div class="stat-card"><div class="num">6</div><div class="label">spots remaining</div></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 11px; color: var(--text2);">Share this link:</span>
+          <span class="code-inline" style="flex: 1; overflow: hidden; text-overflow: ellipsis;">events.jointheleague.org/r/abc123</span>
+          <button class="btn-small">Copy</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Timeline</h3>
+        <div class="timeline" style="margin-top: 10px;">
+          <div class="tl-item"><div class="tl-dot current"></div><div class="tl-label" style="color: var(--text); font-weight: 500;">Confirmed</div><div class="tl-date">March 12, 2026</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Dates proposed</div><div class="tl-date">March 8, 2026</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Discussing</div><div class="tl-date">March 5, 2026</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-label">Submitted</div><div class="tl-date">March 3, 2026</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SCREEN B6 ==================== -->
+<div class="screen" id="screen-b6">
+  <span class="screen-label">Screen B6 — Private event date voting</span>
+  <p class="screen-host">events.jointheleague.org · Standalone shareable link · No app shell / no left-nav</p>
+
+  <div class="card" style="max-width: 520px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 16px;">
+      <h2>Intro to robotics</h2>
+      <p>Elementary Institute of Science · San Diego</p>
+      <p style="font-size: 12px; color: var(--text3); margin-top: 4px;">Kids will program robots to navigate obstacles using micro:bit controllers and sensors.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="margin-bottom: 4px;">Which dates work for you?</h3>
+    <p style="margin-bottom: 12px;">Check all dates your family can attend. We'll pick the date that works for the most people.</p>
+
+    <label class="checkbox-row"><input type="checkbox" /> <strong>Saturday, March 22 · 10:00 AM</strong></label>
+    <label class="checkbox-row"><input type="checkbox" /> <strong>Saturday, March 29 · 10:00 AM</strong></label>
+    <label class="checkbox-row"><input type="checkbox" /> <strong>Saturday, April 5 · 1:00 PM</strong></label>
+
+    <div class="divider"></div>
+
+    <h3 style="margin-bottom: 8px;">Your information</h3>
+    <div class="form-row">
+      <div><label class="field-label">Your name</label><input type="text" placeholder="Full name" /></div>
+    </div>
+    <div class="form-row">
+      <div><label class="field-label">Email</label><input type="email" placeholder="you@example.com" /></div>
+      <div class="narrow"><label class="field-label">Kids attending</label><input type="number" placeholder="2" min="1" /></div>
+    </div>
+
+    <button class="btn btn-primary" style="margin-top: 4px;">Submit</button>
+  </div>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('#tabBar button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('#tabBar button').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+    this.classList.add('active');
+    document.getElementById('screen-' + this.dataset.screen).classList.add('active');
+  });
+});
+
+// A1: Zip search
+var a1Slots = [
+  { cls: 'Python game design', date: 'Sat, Apr 26', time: '3:30 PM', area: 'North County' },
+  { cls: 'Intro to robotics', date: 'Sat, May 3', time: '10:00 AM', area: 'Central San Diego' },
+  { cls: 'Micro:bit electronics', date: 'Wed, May 7', time: '3:30 PM', area: 'North County' },
+  { cls: 'JavaScript web apps', date: 'Sat, May 10', time: '1:00 PM', area: 'East County' },
+  { cls: 'Python game design', date: 'Sat, May 17', time: '3:30 PM', area: 'North County' },
+  { cls: 'AI & machine learning', date: 'Sat, May 24', time: '10:00 AM', area: 'Central San Diego' }
+];
+
+document.getElementById('a1-zip-btn').addEventListener('click', function() {
+  var zip = document.getElementById('a1-zip').value.trim();
+  if (zip.length < 5) return;
+  if (zip === '00000') {
+    document.getElementById('a1-nozip').textContent = zip;
+    document.getElementById('a1-nocoverage').style.display = 'block';
+    document.getElementById('a1-results').style.display = 'none';
+    document.getElementById('a1-selected').style.display = 'none';
+    return;
+  }
+  document.getElementById('a1-zip-display').textContent = zip;
+  document.getElementById('a1-nocoverage').style.display = 'none';
+  document.getElementById('a1-results').style.display = 'block';
+  document.getElementById('a1-selected').style.display = 'none';
+
+  var container = document.getElementById('a1-slots');
+  container.innerHTML = '';
+  a1Slots.forEach(function(s, i) {
+    var el = document.createElement('div');
+    el.className = 'list-item';
+    el.innerHTML = '<div><div class="title">' + s.cls + '</div><div class="sub">' + s.date + ' · ' + s.time + ' · ' + s.area + '</div></div>';
+    var btn = document.createElement('button');
+    btn.className = 'btn-small';
+    btn.textContent = 'Request this';
+    btn.addEventListener('click', function() {
+      document.getElementById('a1-selected-summary').textContent = s.cls + ' — ' + s.date + ', ' + s.time + ' — ' + s.area;
+      document.getElementById('a1-selected').style.display = 'block';
+      document.getElementById('a1-selected').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    el.appendChild(btn);
+    container.appendChild(el);
+  });
+});
+
+document.getElementById('a1-zip').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('a1-zip-btn').click();
+});
+
+document.getElementById('a1-private').addEventListener('change', function() {
+  document.getElementById('a1-private-notice').style.display = this.checked ? 'block' : 'none';
+});
+
+// A2: State tabs
+document.querySelectorAll('.a2-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.a2-tab').forEach(function(t) {
+      t.style.fontWeight = '400';
+      t.style.color = 'var(--text2)';
+      t.style.background = 'var(--bg2)';
+    });
+    this.style.fontWeight = '500';
+    this.style.color = 'var(--text)';
+    this.style.background = 'var(--bg)';
+    document.getElementById('a2-open').style.display = 'none';
+    document.getElementById('a2-full').style.display = 'none';
+    document.getElementById('a2-none').style.display = 'none';
+    document.getElementById('a2-' + this.dataset.state).style.display = 'block';
+  });
+});
+
+// A2: Add child
+document.getElementById('a2-add-child').addEventListener('click', function() {
+  var row = document.createElement('div');
+  row.className = 'form-row';
+  row.innerHTML = '<div><input type="text" placeholder="Child\'s full name" /></div><div class="narrow"><input type="number" placeholder="10" min="5" max="18" /></div><div style="flex: 0 0 30px; display: flex; align-items: flex-end;"><button class="btn-small" style="padding: 8px 6px; color: var(--text3);">×</button></div>';
+  row.querySelector('button').addEventListener('click', function() { row.remove(); });
+  document.getElementById('a2-children').appendChild(row);
+});
+
+// B1: Site picker
+document.getElementById('b1-site').addEventListener('change', function() {
+  var v = this.value;
+  document.getElementById('b1-site-details').style.display = (v && v !== 'custom') ? 'block' : 'none';
+  document.getElementById('b1-custom-addr').style.display = (v === 'custom') ? 'block' : 'none';
+});
+</script>
+</body>
+</html>

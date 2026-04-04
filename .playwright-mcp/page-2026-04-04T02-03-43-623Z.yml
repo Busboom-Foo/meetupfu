@@ -1,0 +1,35 @@
+- generic [ref=e155]:
+  - generic [ref=e156]:
+    - generic [ref=e157]: "Demo state:"
+    - generic [ref=e158]:
+      - button "Open" [ref=e159] [cursor=pointer]
+      - button "Full" [ref=e160] [cursor=pointer]
+      - button "No Event" [ref=e161] [cursor=pointer]
+  - generic [ref=e162]:
+    - generic [ref=e163]:
+      - generic [ref=e164]: Hour of Micro:bit
+      - generic [ref=e165]: Saturday, April 19, 2026 at 3:30 PM — Carmel Mountain Ranch Library
+    - generic [ref=e166]:
+      - generic [ref=e167]: 3 spots remaining
+      - generic [ref=e168]:
+        - generic [ref=e169]:
+          - generic [ref=e170]: Guardian Name
+          - textbox "Full name" [ref=e171]
+        - generic [ref=e172]:
+          - generic [ref=e173]: Guardian Email
+          - textbox "email@example.com" [ref=e174]
+        - generic [ref=e175]:
+          - generic [ref=e176]: Guardian Phone
+          - textbox "(555) 000-0000" [ref=e177]
+        - generic [ref=e178]:
+          - generic [ref=e179]: Children Attending
+          - generic [ref=e180]:
+            - textbox "Child name" [ref=e181]
+            - spinbutton [ref=e182]
+          - button "+ Add another child" [ref=e183] [cursor=pointer]
+        - generic [ref=e184]:
+          - checkbox "I'd like to volunteer at this event" [ref=e185]
+          - generic [ref=e186] [cursor=pointer]: I'd like to volunteer at this event
+        - button "Register" [ref=e187] [cursor=pointer]
+      - link "View on Meetup →" [ref=e189] [cursor=pointer]:
+        - /url: "#"

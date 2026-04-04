@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { mockRequests, RequestStatus } from './mock-data';
+import { mockRequests } from './mock-data';
+import type { RequestStatus } from './mock-data';
 
 const statusColors: Record<RequestStatus, { background: string; color: string; label: string }> = {
   new:            { background: '#e5e7eb', color: '#374151', label: 'New' },
@@ -97,7 +98,7 @@ export default function B4Dashboard() {
               {/* Footer link */}
               <div style={{ marginTop: '14px' }}>
                 <Link
-                  to="/wireframes/b5-detail"
+                  to="/b5-detail"
                   style={{
                     fontSize: '14px',
                     fontWeight: 600,
