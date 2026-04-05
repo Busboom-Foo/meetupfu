@@ -44,9 +44,11 @@ export interface MockRequestableSlot {
   time: string;
   neighborhood: string;
   siteName: string;
-  zip: string;          // zip code of the site (used for distance calc)
+  zip: string;
   lat: number;
   lon: number;
+  region: string;
+  dayOfWeek: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 }
 
 export interface MockCandidateDate {
@@ -175,40 +177,48 @@ export const mockAvailableDates: MockAvailableDate[] = [
 // ── Requestable Slots (for class page request section) ──────
 
 export const mockRequestableSlots: MockRequestableSlot[] = [
-  // Saturday, April 19 — 3 locations
-  { id: 'rs-01', className: 'Hour of Micro:bit', date: 'Saturday, April 19, 2026', time: '10:00 AM', neighborhood: 'Rancho Bernardo', siteName: 'Rancho Bernardo Library', zip: '92128', lat: 33.0002, lon: -117.0715 },
-  { id: 'rs-02', className: 'Hour of Micro:bit', date: 'Saturday, April 19, 2026', time: '2:00 PM', neighborhood: 'La Jolla', siteName: 'La Jolla Library', zip: '92037', lat: 32.8422, lon: -117.2617 },
-  { id: 'rs-03', className: 'Hour of Micro:bit', date: 'Saturday, April 19, 2026', time: '3:30 PM', neighborhood: 'Chula Vista', siteName: 'Chula Vista Civic Center Library', zip: '91910', lat: 32.6243, lon: -117.074 },
+  // Saturday, April 19 — 3 regions
+  { id: 'rs-01', className: 'Hour of Micro:bit', date: 'Saturday, April 19, 2026', time: '10:00 AM', neighborhood: 'Rancho Bernardo', siteName: 'Rancho Bernardo Library', zip: '92128', lat: 33.0002, lon: -117.0715, region: 'North County Inland', dayOfWeek: 'Saturday' },
+  { id: 'rs-02', className: 'Hour of Micro:bit', date: 'Saturday, April 19, 2026', time: '2:00 PM', neighborhood: 'La Jolla', siteName: 'La Jolla Library', zip: '92037', lat: 32.8422, lon: -117.2617, region: 'Central San Diego', dayOfWeek: 'Saturday' },
+  { id: 'rs-03', className: 'Hour of Micro:bit', date: 'Saturday, April 19, 2026', time: '3:30 PM', neighborhood: 'Chula Vista', siteName: 'Chula Vista Civic Center Library', zip: '91910', lat: 32.6243, lon: -117.074, region: 'South Bay', dayOfWeek: 'Saturday' },
 
-  // Wednesday, April 23 — 2 locations
-  { id: 'rs-04', className: 'Hour of Micro:bit', date: 'Wednesday, April 23, 2026', time: '4:00 PM', neighborhood: 'Poway', siteName: 'Poway Library', zip: '92064', lat: 32.978, lon: -117.0359 },
-  { id: 'rs-05', className: 'Hour of Micro:bit', date: 'Wednesday, April 23, 2026', time: '4:00 PM', neighborhood: 'Clairemont', siteName: 'Clairemont Library', zip: '92117', lat: 32.8272, lon: -117.2028 },
+  // Wednesday, April 23 — 2 regions
+  { id: 'rs-04', className: 'Hour of Micro:bit', date: 'Wednesday, April 23, 2026', time: '4:00 PM', neighborhood: 'Poway', siteName: 'Poway Library', zip: '92064', lat: 32.978, lon: -117.0359, region: 'North County Inland', dayOfWeek: 'Wednesday' },
+  { id: 'rs-05', className: 'Hour of Micro:bit', date: 'Wednesday, April 23, 2026', time: '4:00 PM', neighborhood: 'Clairemont', siteName: 'Clairemont Library', zip: '92117', lat: 32.8272, lon: -117.2028, region: 'Central San Diego', dayOfWeek: 'Wednesday' },
 
-  // Saturday, April 26 — 2 locations
-  { id: 'rs-06', className: 'Hour of Micro:bit', date: 'Saturday, April 26, 2026', time: '10:00 AM', neighborhood: 'Scripps Ranch', siteName: 'Scripps Ranch Library', zip: '92131', lat: 32.9122, lon: -117.1042 },
-  { id: 'rs-07', className: 'Hour of Micro:bit', date: 'Saturday, April 26, 2026', time: '1:00 PM', neighborhood: 'El Cajon', siteName: 'El Cajon Library', zip: '92020', lat: 32.7948, lon: -116.9625 },
+  // Saturday, April 26 — 2 regions
+  { id: 'rs-06', className: 'Hour of Micro:bit', date: 'Saturday, April 26, 2026', time: '10:00 AM', neighborhood: 'Scripps Ranch', siteName: 'Scripps Ranch Library', zip: '92131', lat: 32.9122, lon: -117.1042, region: 'Central San Diego', dayOfWeek: 'Saturday' },
+  { id: 'rs-07', className: 'Hour of Micro:bit', date: 'Saturday, April 26, 2026', time: '1:00 PM', neighborhood: 'El Cajon', siteName: 'El Cajon Library', zip: '92020', lat: 32.7948, lon: -116.9625, region: 'East County', dayOfWeek: 'Saturday' },
 
-  // Saturday, May 3 — 3 locations
-  { id: 'rs-08', className: 'Hour of Micro:bit', date: 'Saturday, May 3, 2026', time: '10:00 AM', neighborhood: 'Rancho Bernardo', siteName: 'RB Community Center', zip: '92127', lat: 33.0245, lon: -117.1069 },
-  { id: 'rs-09', className: 'Hour of Micro:bit', date: 'Saturday, May 3, 2026', time: '2:00 PM', neighborhood: 'Mira Mesa', siteName: 'Mira Mesa Library', zip: '92126', lat: 32.9118, lon: -117.1443 },
-  { id: 'rs-10', className: 'Hour of Micro:bit', date: 'Saturday, May 3, 2026', time: '3:30 PM', neighborhood: 'La Jolla', siteName: 'La Jolla Library', zip: '92037', lat: 32.8422, lon: -117.2617 },
+  // Tuesday, April 29 — 2 regions
+  { id: 'rs-08', className: 'Hour of Micro:bit', date: 'Tuesday, April 29, 2026', time: '4:00 PM', neighborhood: 'Encinitas', siteName: 'Encinitas Library', zip: '92024', lat: 33.0518, lon: -117.2612, region: 'North County Coastal', dayOfWeek: 'Tuesday' },
+  { id: 'rs-09', className: 'Hour of Micro:bit', date: 'Tuesday, April 29, 2026', time: '4:00 PM', neighborhood: 'Chula Vista', siteName: 'Chula Vista Civic Center Library', zip: '91910', lat: 32.6243, lon: -117.074, region: 'South Bay', dayOfWeek: 'Tuesday' },
 
-  // Wednesday, May 7 — 2 locations
-  { id: 'rs-11', className: 'Hour of Micro:bit', date: 'Wednesday, May 7, 2026', time: '4:00 PM', neighborhood: 'Poway', siteName: 'Poway Library', zip: '92064', lat: 32.978, lon: -117.0359 },
-  { id: 'rs-12', className: 'Hour of Micro:bit', date: 'Wednesday, May 7, 2026', time: '4:00 PM', neighborhood: 'Chula Vista', siteName: 'Chula Vista Civic Center Library', zip: '91910', lat: 32.6243, lon: -117.074 },
+  // Saturday, May 3 — 3 regions
+  { id: 'rs-10', className: 'Hour of Micro:bit', date: 'Saturday, May 3, 2026', time: '10:00 AM', neighborhood: 'Rancho Bernardo', siteName: 'RB Community Center', zip: '92127', lat: 33.0245, lon: -117.1069, region: 'North County Inland', dayOfWeek: 'Saturday' },
+  { id: 'rs-11', className: 'Hour of Micro:bit', date: 'Saturday, May 3, 2026', time: '2:00 PM', neighborhood: 'Mira Mesa', siteName: 'Mira Mesa Library', zip: '92126', lat: 32.9118, lon: -117.1443, region: 'North County Inland', dayOfWeek: 'Saturday' },
+  { id: 'rs-12', className: 'Hour of Micro:bit', date: 'Saturday, May 3, 2026', time: '3:30 PM', neighborhood: 'La Jolla', siteName: 'La Jolla Library', zip: '92037', lat: 32.8422, lon: -117.2617, region: 'Central San Diego', dayOfWeek: 'Saturday' },
 
-  // Saturday, May 10 — 2 locations
-  { id: 'rs-13', className: 'Hour of Micro:bit', date: 'Saturday, May 10, 2026', time: '10:00 AM', neighborhood: 'Scripps Ranch', siteName: 'Scripps Ranch Library', zip: '92131', lat: 32.9122, lon: -117.1042 },
-  { id: 'rs-14', className: 'Hour of Micro:bit', date: 'Saturday, May 10, 2026', time: '1:00 PM', neighborhood: 'Clairemont', siteName: 'Clairemont Library', zip: '92117', lat: 32.8272, lon: -117.2028 },
+  // Wednesday, May 7 — 2 regions
+  { id: 'rs-13', className: 'Hour of Micro:bit', date: 'Wednesday, May 7, 2026', time: '4:00 PM', neighborhood: 'Poway', siteName: 'Poway Library', zip: '92064', lat: 32.978, lon: -117.0359, region: 'North County Inland', dayOfWeek: 'Wednesday' },
+  { id: 'rs-14', className: 'Hour of Micro:bit', date: 'Wednesday, May 7, 2026', time: '4:00 PM', neighborhood: 'Oceanside', siteName: 'Oceanside Library', zip: '92054', lat: 33.2076, lon: -117.3543, region: 'North County Coastal', dayOfWeek: 'Wednesday' },
 
-  // Wednesday, May 14 — 2 locations
-  { id: 'rs-15', className: 'Hour of Micro:bit', date: 'Wednesday, May 14, 2026', time: '4:00 PM', neighborhood: 'Rancho Bernardo', siteName: 'Rancho Bernardo Library', zip: '92128', lat: 33.0002, lon: -117.0715 },
-  { id: 'rs-16', className: 'Hour of Micro:bit', date: 'Wednesday, May 14, 2026', time: '4:00 PM', neighborhood: 'El Cajon', siteName: 'El Cajon Library', zip: '92020', lat: 32.7948, lon: -116.9625 },
+  // Thursday, May 8 — 2 regions
+  { id: 'rs-15', className: 'Hour of Micro:bit', date: 'Thursday, May 8, 2026', time: '4:00 PM', neighborhood: 'El Cajon', siteName: 'El Cajon Library', zip: '92020', lat: 32.7948, lon: -116.9625, region: 'East County', dayOfWeek: 'Thursday' },
+  { id: 'rs-16', className: 'Hour of Micro:bit', date: 'Thursday, May 8, 2026', time: '4:00 PM', neighborhood: 'National City', siteName: 'National City Library', zip: '91950', lat: 32.667, lon: -117.099, region: 'South Bay', dayOfWeek: 'Thursday' },
 
-  // Saturday, May 17 — 3 locations
-  { id: 'rs-17', className: 'Hour of Micro:bit', date: 'Saturday, May 17, 2026', time: '10:00 AM', neighborhood: 'Mira Mesa', siteName: 'Mira Mesa Library', zip: '92126', lat: 32.9118, lon: -117.1443 },
-  { id: 'rs-18', className: 'Hour of Micro:bit', date: 'Saturday, May 17, 2026', time: '2:00 PM', neighborhood: 'La Jolla', siteName: 'La Jolla Library', zip: '92037', lat: 32.8422, lon: -117.2617 },
-  { id: 'rs-19', className: 'Hour of Micro:bit', date: 'Saturday, May 17, 2026', time: '3:30 PM', neighborhood: 'Chula Vista', siteName: 'Chula Vista Civic Center Library', zip: '91910', lat: 32.6243, lon: -117.074 },
+  // Saturday, May 10 — 2 regions
+  { id: 'rs-17', className: 'Hour of Micro:bit', date: 'Saturday, May 10, 2026', time: '10:00 AM', neighborhood: 'Scripps Ranch', siteName: 'Scripps Ranch Library', zip: '92131', lat: 32.9122, lon: -117.1042, region: 'Central San Diego', dayOfWeek: 'Saturday' },
+  { id: 'rs-18', className: 'Hour of Micro:bit', date: 'Saturday, May 10, 2026', time: '1:00 PM', neighborhood: 'Carlsbad', siteName: 'Carlsbad Library', zip: '92008', lat: 33.1581, lon: -117.3376, region: 'North County Coastal', dayOfWeek: 'Saturday' },
+
+  // Wednesday, May 14 — 2 regions
+  { id: 'rs-19', className: 'Hour of Micro:bit', date: 'Wednesday, May 14, 2026', time: '4:00 PM', neighborhood: 'Rancho Bernardo', siteName: 'Rancho Bernardo Library', zip: '92128', lat: 33.0002, lon: -117.0715, region: 'North County Inland', dayOfWeek: 'Wednesday' },
+  { id: 'rs-20', className: 'Hour of Micro:bit', date: 'Wednesday, May 14, 2026', time: '4:00 PM', neighborhood: 'Hillcrest', siteName: 'Mission Hills Library', zip: '92103', lat: 32.7493, lon: -117.1671, region: 'Central San Diego', dayOfWeek: 'Wednesday' },
+
+  // Saturday, May 17 — 3 regions
+  { id: 'rs-21', className: 'Hour of Micro:bit', date: 'Saturday, May 17, 2026', time: '10:00 AM', neighborhood: 'Mira Mesa', siteName: 'Mira Mesa Library', zip: '92126', lat: 32.9118, lon: -117.1443, region: 'North County Inland', dayOfWeek: 'Saturday' },
+  { id: 'rs-22', className: 'Hour of Micro:bit', date: 'Saturday, May 17, 2026', time: '2:00 PM', neighborhood: 'La Jolla', siteName: 'La Jolla Library', zip: '92037', lat: 32.8422, lon: -117.2617, region: 'Central San Diego', dayOfWeek: 'Saturday' },
+  { id: 'rs-23', className: 'Hour of Micro:bit', date: 'Saturday, May 17, 2026', time: '3:30 PM', neighborhood: 'Chula Vista', siteName: 'Chula Vista Civic Center Library', zip: '91910', lat: 32.6243, lon: -117.074, region: 'South Bay', dayOfWeek: 'Saturday' },
 ];
 
 // ── Candidate Dates (for B6 voting) ─────────────────────────

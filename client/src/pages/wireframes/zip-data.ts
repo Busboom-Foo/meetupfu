@@ -101,6 +101,16 @@ export const zipData: ZipEntry[] = [
   { zip: '92173', neighborhood: 'San Ysidro', region: 'South Bay', lat: 32.5535, lon: -117.051 },
 ];
 
+export const REGIONS = [
+  'Central San Diego',
+  'North County Coastal',
+  'North County Inland',
+  'East County',
+  'South Bay',
+] as const;
+
+export type Region = typeof REGIONS[number];
+
 /** Haversine distance in miles between two lat/lon points. */
 export function haversineDistance(
   lat1: number, lon1: number,

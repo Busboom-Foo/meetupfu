@@ -1,139 +1,277 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LeagueHeader from './components/LeagueHeader';
-import { mockClass, mockAvailableDates, mockRequestableSlots } from './mock-data';
-import { resolveLocation, haversineDistance } from './zip-data';
+import { mockClass } from './mock-data';
+import { REGIONS } from './zip-data';
+import { scheduledEvents, generatedSlots } from './staff-availability';
+import type { ScheduledEvent } from './staff-availability';
 
 const ORANGE = '#ea580c';
+const CAL_DAY_HEADERS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+// Calendar helpers (same logic as RequestPublic)
+const WIREFRAME_TODAY = new Date(2026, 3, 7);
+
+function getUpcomingWeeks(startDate: Date, numWeeks: number) {
+  const begin = new Date(startDate);
+  begin.setDate(begin.getDate() - begin.getDay()); // align to Sunday
+  const weeks: Date[][] = [];
+  const cursor = new Date(begin);
+  for (let w = 0; w < numWeeks; w++) {
+    const week: Date[] = [];
+    for (let d = 0; d < 7; d++) {
+      week.push(new Date(cursor));
+      cursor.setDate(cursor.getDate() + 1);
+    }
+    weeks.push(week);
+  }
+  return weeks;
+}
+
+function calDateKey(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function calFormatDay(d: Date): string {
+  return `${d.getMonth() + 1}/${d.getDate()}`;
+}
+
+function buildEventCalMap(events: ScheduledEvent[]): Map<string, ScheduledEvent[]> {
+  const map = new Map<string, ScheduledEvent[]>();
+  for (const evt of events) {
+    const parsed = new Date(evt.date.replace(/^[A-Za-z]+, /, ''));
+    const key = calDateKey(parsed);
+    const arr = map.get(key) ?? [];
+    arr.push(evt);
+    map.set(key, arr);
+  }
+  return map;
+}
+
+const upcomingWeeks = getUpcomingWeeks(WIREFRAME_TODAY, 5);
+const upcomingEventMap = buildEventCalMap(scheduledEvents);
 const CONTAINER_MAX = 1000;
+
+// ── Upcoming Events (list + calendar toggle) ─────────────────
+
+function UpcomingEvents() {
+  const [view, setView] = useState<'list' | 'calendar'>('list');
+
+  return (
+    <div style={styles.eventsSection}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+        <h2 style={{ ...styles.sectionHeading, margin: 0 }}>Upcoming Events</h2>
+        <div style={{ display: 'flex', gap: '4px' }}>
+          <button
+            style={view === 'list' ? evtStyles.viewBtnActive : evtStyles.viewBtn}
+            onClick={() => setView('list')}
+          >
+            List
+          </button>
+          <button
+            style={view === 'calendar' ? evtStyles.viewBtnActive : evtStyles.viewBtn}
+            onClick={() => setView('calendar')}
+          >
+            Calendar
+          </button>
+        </div>
+      </div>
+      <p style={{ ...styles.bodyText, marginBottom: '16px' }}>
+        These sessions are already scheduled. Click to register.
+      </p>
+
+      {view === 'list' ? (
+        <div style={styles.eventsList}>
+          {scheduledEvents.map((evt) => (
+            <Link key={evt.id} to="/a2-registration" style={styles.eventRowCompact}>
+              <span style={styles.eventColRegion}>{evt.region}</span>
+              <span style={styles.eventColDate}>{evt.date}</span>
+              <span style={styles.eventColTime}>{evt.timeRange}</span>
+              <span style={styles.eventAction}>Register &rarr;</span>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div style={evtStyles.calGrid}>
+          {CAL_DAY_HEADERS.map((d) => (
+            <div key={d} style={evtStyles.calHeader}>{d}</div>
+          ))}
+          {upcomingWeeks.map((week) =>
+            week.map((day) => {
+              const key = calDateKey(day);
+              const dayEvents = upcomingEventMap.get(key) ?? [];
+              const isPast = day < WIREFRAME_TODAY;
+              return (
+                <div key={key} style={{ ...evtStyles.calCell, ...(isPast ? evtStyles.calCellPast : {}) }}>
+                  <div style={evtStyles.calDate}>{calFormatDay(day)}</div>
+                  {dayEvents.map((evt) => (
+                    <Link key={evt.id} to="/a2-registration" style={evtStyles.calSlot}>
+                      <div>{evt.startTime}</div>
+                      <div style={evtStyles.calSlotRegion}>{evt.region}</div>
+                    </Link>
+                  ))}
+                </div>
+              );
+            })
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const evtStyles: Record<string, React.CSSProperties> = {
+  viewBtn: {
+    padding: '4px 12px', fontSize: '12px', fontWeight: 500,
+    border: '1px solid #d1d5db', borderRadius: '4px',
+    background: '#fff', color: '#6b7280', cursor: 'pointer', fontFamily: 'inherit',
+  },
+  viewBtnActive: {
+    padding: '4px 12px', fontSize: '12px', fontWeight: 600,
+    border: `1px solid ${ORANGE}`, borderRadius: '4px',
+    background: '#fff7ed', color: ORANGE, cursor: 'pointer', fontFamily: 'inherit',
+  },
+  calGrid: {
+    display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '1px',
+    background: '#e5e7eb', border: '1px solid #e5e7eb', borderRadius: '8px', overflow: 'hidden',
+  },
+  calHeader: {
+    background: '#f3f4f6', padding: '6px 4px', fontSize: '11px', fontWeight: 700,
+    color: '#6b7280', textAlign: 'center' as const, textTransform: 'uppercase' as const,
+  },
+  calCell: {
+    background: '#fff', padding: '4px', minHeight: '70px',
+    display: 'flex', flexDirection: 'column' as const, gap: '2px',
+  },
+  calCellPast: { background: '#fafafa', opacity: 0.5 },
+  calDate: { fontSize: '11px', fontWeight: 600, color: '#9ca3af', marginBottom: '2px' },
+  calSlot: {
+    display: 'block', width: '100%', padding: '3px 4px', fontSize: '10px', fontWeight: 500,
+    color: '#1e40af', background: '#dbeafe', border: '1px solid #bfdbfe', borderRadius: '3px',
+    textAlign: 'center' as const, textDecoration: 'none',
+  },
+  calSlotRegion: {
+    fontSize: '8px', fontWeight: 400, color: '#6b7280', marginTop: '1px',
+  },
+};
 
 // ── Request an Event (interactive component) ─────────────────
 
+const DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
+
 function RequestAnEvent() {
-  const [query, setQuery] = useState('');
-  const [searchResult, setSearchResult] = useState<{
-    lat: number; lon: number; label: string;
-    nearby: { slot: typeof mockRequestableSlots[0]; distance: number }[];
-    farther: { slot: typeof mockRequestableSlots[0]; distance: number }[];
-  } | null>(null);
-  const [notFound, setNotFound] = useState(false);
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedDays, setSelectedDays] = useState<Set<string>>(new Set());
+  const [eventType, setEventType] = useState<'public' | 'private'>('public');
 
-  function handleSearch() {
-    const resolved = resolveLocation(query);
-    if (!resolved) {
-      setSearchResult(null);
-      setNotFound(true);
-      return;
-    }
-    setNotFound(false);
-
-    const withDistance = mockRequestableSlots.map((slot) => ({
-      slot,
-      distance: Math.round(haversineDistance(resolved.lat, resolved.lon, slot.lat, slot.lon)),
-    }));
-    withDistance.sort((a, b) => a.slot.id.localeCompare(b.slot.id)); // sort by date
-
-    setSearchResult({
-      lat: resolved.lat,
-      lon: resolved.lon,
-      label: resolved.label,
-      nearby: withDistance.filter((s) => s.distance <= 15),
-      farther: withDistance.filter((s) => s.distance > 15 && s.distance <= 30),
+  function toggleDay(day: string) {
+    setSelectedDays((prev) => {
+      const next = new Set(prev);
+      if (next.has(day)) next.delete(day);
+      else next.add(day);
+      return next;
     });
   }
 
-  function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === 'Enter') handleSearch();
-  }
+  const canProceed = selectedRegion !== '' && selectedDays.size > 0;
+
+  const targetPath = eventType === 'public' ? '/request-public' : '/request-private';
+  const params = new URLSearchParams();
+  if (selectedRegion) params.set('region', selectedRegion);
+  if (selectedDays.size > 0) params.set('days', [...selectedDays].join(','));
 
   return (
     <div style={reqStyles.section}>
       <h2 style={styles.sectionHeading}>Request an Event</h2>
-      <p style={{ ...styles.bodyText, marginBottom: '20px' }}>
-        Want to bring {mockClass.title.split(' \u2014')[0]} to your community? Enter your
-        zip code or city to find available dates and locations near you.
+      <p style={{ ...styles.bodyText, marginBottom: '24px' }}>
+        Want to bring {mockClass.title.split(' \u2014')[0]} to your community?
+        Tell us where and when, and we'll match you with an available instructor.
       </p>
 
-      <div style={reqStyles.searchRow}>
-        <input
-          type="text"
-          placeholder="Zip code or city name"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={handleKeyDown}
-          style={reqStyles.searchInput}
-        />
-        <button style={reqStyles.searchButton} onClick={handleSearch}>
-          Find Dates
-        </button>
+      {/* Region */}
+      <div style={reqStyles.fieldGroup}>
+        <label style={reqStyles.label}>Part of Town</label>
+        <div style={reqStyles.regionGrid}>
+          {REGIONS.map((region) => (
+            <button
+              key={region}
+              style={selectedRegion === region ? reqStyles.chipActive : reqStyles.chip}
+              onClick={() => setSelectedRegion(region)}
+            >
+              {region}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {notFound && (
-        <p style={reqStyles.notFound}>
-          We couldn't find that location in San Diego County. Try a 5-digit zip code or neighborhood name.
-        </p>
-      )}
-
-      {searchResult && (
-        <div style={reqStyles.results}>
-          <p style={reqStyles.resultsLabel}>
-            Showing availability near <strong>{searchResult.label}</strong>
-          </p>
-
-          {searchResult.nearby.length > 0 && (
-            <div style={reqStyles.distanceGroup}>
-              <h3 style={reqStyles.distanceHeading}>
-                Within 15 miles
-                <span style={reqStyles.distanceCount}>{searchResult.nearby.length} available</span>
-              </h3>
-              {searchResult.nearby.map(({ slot, distance }) => (
-                <Link key={slot.id} to={`/b1-intake?slot=${slot.id}`} style={reqStyles.slotRow}>
-                  <div style={reqStyles.slotDate}>
-                    <div style={reqStyles.slotDay}>{slot.date.split(',')[0]}</div>
-                    <div style={reqStyles.slotFullDate}>{slot.date.split(', ').slice(1).join(', ')}</div>
-                    <div style={reqStyles.slotTime}>{slot.time}</div>
-                  </div>
-                  <div style={reqStyles.slotLocation}>
-                    <div style={reqStyles.slotNeighborhood}>{slot.neighborhood}</div>
-                    <div style={reqStyles.slotSite}>{slot.siteName}</div>
-                  </div>
-                  <div style={reqStyles.slotDistance}>{distance} mi</div>
-                  <div style={reqStyles.slotAction}>Select &rarr;</div>
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {searchResult.farther.length > 0 && (
-            <div style={reqStyles.distanceGroup}>
-              <h3 style={reqStyles.distanceHeading}>
-                15–30 miles away
-                <span style={reqStyles.distanceCount}>{searchResult.farther.length} available</span>
-              </h3>
-              {searchResult.farther.map(({ slot, distance }) => (
-                <Link key={slot.id} to={`/b1-intake?slot=${slot.id}`} style={reqStyles.slotRow}>
-                  <div style={reqStyles.slotDate}>
-                    <div style={reqStyles.slotDay}>{slot.date.split(',')[0]}</div>
-                    <div style={reqStyles.slotFullDate}>{slot.date.split(', ').slice(1).join(', ')}</div>
-                    <div style={reqStyles.slotTime}>{slot.time}</div>
-                  </div>
-                  <div style={reqStyles.slotLocation}>
-                    <div style={reqStyles.slotNeighborhood}>{slot.neighborhood}</div>
-                    <div style={reqStyles.slotSite}>{slot.siteName}</div>
-                  </div>
-                  <div style={reqStyles.slotDistance}>{distance} mi</div>
-                  <div style={reqStyles.slotAction}>Select &rarr;</div>
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {searchResult.nearby.length === 0 && searchResult.farther.length === 0 && (
-            <p style={reqStyles.noResults}>
-              No available dates within 30 miles. Try a different location or check back later.
-            </p>
-          )}
+      {/* Days of week */}
+      <div style={reqStyles.fieldGroup}>
+        <label style={reqStyles.label}>Preferred Days</label>
+        <div style={reqStyles.dayGrid}>
+          {DAYS_OF_WEEK.map((day) => (
+            <button
+              key={day}
+              style={selectedDays.has(day) ? reqStyles.chipActive : reqStyles.chip}
+              onClick={() => toggleDay(day)}
+            >
+              {day.slice(0, 3)}
+            </button>
+          ))}
         </div>
+        <div style={reqStyles.quickLinks}>
+          <button style={reqStyles.quickLink} onClick={() => setSelectedDays(new Set(['Monday','Tuesday','Wednesday','Thursday','Friday']))}>weekdays</button>
+          <button style={reqStyles.quickLink} onClick={() => setSelectedDays(new Set(['Saturday','Sunday']))}>weekends</button>
+          <button style={reqStyles.quickLink} onClick={() => setSelectedDays(new Set(DAYS_OF_WEEK))}>all</button>
+          <button style={reqStyles.quickLink} onClick={() => setSelectedDays(new Set())}>none</button>
+        </div>
+      </div>
+
+      {/* Event type — radio group */}
+      <div style={reqStyles.fieldGroup}>
+        <label style={reqStyles.label}>Type of Event</label>
+        <div style={reqStyles.typeOptions}>
+          <label style={reqStyles.radioLabel}>
+            <input
+              type="radio"
+              name="eventType"
+              checked={eventType === 'public'}
+              onChange={() => setEventType('public')}
+              style={reqStyles.radio}
+            />
+            <div>
+              <div style={reqStyles.radioTitle}>Public</div>
+              <div style={reqStyles.radioDesc}>
+                Bring a public class to a library, rec center or public youth center
+              </div>
+            </div>
+          </label>
+          <label style={reqStyles.radioLabel}>
+            <input
+              type="radio"
+              name="eventType"
+              checked={eventType === 'private'}
+              onChange={() => setEventType('private')}
+              style={reqStyles.radio}
+            />
+            <div>
+              <div style={reqStyles.radioTitle}>Private</div>
+              <div style={reqStyles.radioDesc}>
+                A private class for your scouting, youth or church group
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      {/* CTA */}
+      {canProceed ? (
+        <Link to={`${targetPath}?${params.toString()}`} style={reqStyles.ctaButton}>
+          Continue &rarr;
+        </Link>
+      ) : (
+        <button style={reqStyles.ctaButtonDisabled} disabled>
+          Continue &rarr;
+        </button>
       )}
     </div>
   );
@@ -145,125 +283,116 @@ const reqStyles: Record<string, React.CSSProperties> = {
     paddingTop: '40px',
     borderTop: '1px solid #e5e7eb',
   },
-  searchRow: {
-    display: 'flex',
-    gap: '10px',
+  fieldGroup: {
+    marginBottom: '20px',
+  },
+  label: {
+    display: 'block',
+    fontSize: '14px',
+    fontWeight: 600,
+    color: '#374151',
     marginBottom: '8px',
   },
-  searchInput: {
-    flex: 1,
-    maxWidth: '300px',
-    padding: '10px 14px',
-    border: '1px solid #d1d5db',
-    borderRadius: '6px',
-    fontSize: '15px',
-    outline: 'none',
-    color: '#1a1a1a',
-  },
-  searchButton: {
-    padding: '10px 20px',
-    background: ORANGE,
-    color: '#fff',
-    border: 'none',
-    borderRadius: '6px',
-    fontSize: '14px',
-    fontWeight: 600,
-    cursor: 'pointer',
-  },
-  notFound: {
-    color: '#991b1b',
-    fontSize: '14px',
-    marginTop: '12px',
-  },
-  results: {
-    marginTop: '24px',
-  },
-  resultsLabel: {
-    fontSize: '14px',
-    color: '#6b7280',
-    marginBottom: '16px',
-  },
-  noResults: {
-    fontSize: '14px',
-    color: '#6b7280',
-    fontStyle: 'italic',
-    padding: '20px 0',
-  },
-  distanceGroup: {
-    marginBottom: '28px',
-  },
-  distanceHeading: {
-    fontSize: '16px',
-    fontWeight: 700,
-    color: '#374151',
-    margin: '0 0 12px',
+  regionGrid: {
     display: 'flex',
-    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '8px',
+  },
+  dayGrid: {
+    display: 'flex',
+    gap: '6px',
+  },
+  quickLinks: {
+    display: 'flex',
+    gap: '12px',
+    marginTop: '6px',
+  },
+  quickLink: {
+    background: 'none',
+    border: 'none',
+    padding: 0,
+    fontSize: '12px',
+    color: '#6b7280',
+    cursor: 'pointer',
+    textDecoration: 'underline',
+    fontFamily: 'inherit',
+  },
+  chip: {
+    padding: '6px 14px',
+    fontSize: '13px',
+    fontWeight: 500,
+    border: '1px solid #d1d5db',
+    borderRadius: '20px',
+    background: '#fff',
+    color: '#374151',
+    cursor: 'pointer',
+    fontFamily: 'inherit',
+  },
+  chipActive: {
+    padding: '6px 14px',
+    fontSize: '13px',
+    fontWeight: 600,
+    border: `1px solid ${ORANGE}`,
+    borderRadius: '20px',
+    background: '#fff7ed',
+    color: ORANGE,
+    cursor: 'pointer',
+    fontFamily: 'inherit',
+  },
+  typeOptions: {
+    display: 'flex',
+    flexDirection: 'column',
     gap: '10px',
   },
-  distanceCount: {
-    fontSize: '12px',
-    fontWeight: 600,
-    color: '#6b7280',
-    background: '#f3f4f6',
-    padding: '2px 8px',
-    borderRadius: '9999px',
-  },
-  slotRow: {
+  radioLabel: {
     display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-    padding: '14px 16px',
-    borderBottom: '1px solid #f3f4f6',
-    textDecoration: 'none',
-    color: 'inherit',
+    alignItems: 'flex-start',
+    gap: '10px',
+    padding: '12px 14px',
+    border: '1px solid #e5e7eb',
+    borderRadius: '8px',
+    cursor: 'pointer',
   },
-  slotDate: {
-    width: '140px',
+  radio: {
+    marginTop: '3px',
+    accentColor: ORANGE,
+    width: '16px',
+    height: '16px',
     flexShrink: 0,
   },
-  slotDay: {
-    fontSize: '12px',
-    fontWeight: 600,
-    color: ORANGE,
-    textTransform: 'uppercase',
-  },
-  slotFullDate: {
-    fontSize: '14px',
-    color: '#1a1a1a',
-    fontWeight: 500,
-  },
-  slotTime: {
-    fontSize: '13px',
-    color: '#6b7280',
-  },
-  slotLocation: {
-    flex: 1,
-    minWidth: 0,
-  },
-  slotNeighborhood: {
+  radioTitle: {
     fontSize: '15px',
     fontWeight: 600,
     color: '#1a1a1a',
-    marginBottom: '1px',
   },
-  slotSite: {
+  radioDesc: {
     fontSize: '13px',
     color: '#6b7280',
+    marginTop: '2px',
   },
-  slotDistance: {
-    fontSize: '13px',
-    color: '#9ca3af',
-    width: '50px',
-    textAlign: 'right',
-    flexShrink: 0,
-  },
-  slotAction: {
-    fontSize: '14px',
+  ctaButton: {
+    display: 'inline-block',
+    padding: '12px 28px',
+    background: ORANGE,
+    color: '#fff',
+    borderRadius: '6px',
+    textDecoration: 'none',
     fontWeight: 600,
-    color: ORANGE,
-    whiteSpace: 'nowrap',
-    flexShrink: 0,
+    fontSize: '15px',
+    marginTop: '8px',
+  },
+  ctaButtonDisabled: {
+    display: 'inline-block',
+    padding: '12px 28px',
+    background: '#d1d5db',
+    color: '#9ca3af',
+    borderRadius: '6px',
+    border: 'none',
+    fontWeight: 600,
+    fontSize: '15px',
+    marginTop: '8px',
+    cursor: 'not-allowed',
+    fontFamily: 'inherit',
   },
 };
 
@@ -344,32 +473,7 @@ export default function ClassPage() {
             </div>
 
             {/* ── Scheduled Events ─────────────────────────── */}
-            <div style={styles.eventsSection}>
-              <h2 style={styles.sectionHeading}>Upcoming Events</h2>
-              <p style={{ ...styles.bodyText, marginBottom: '20px' }}>
-                These sessions are already scheduled. Click to register.
-              </p>
-              <div style={styles.eventsList}>
-                {mockAvailableDates.map((evt) => (
-                  <Link key={evt.id} to="/a2-registration" style={styles.eventRow}>
-                    <div style={styles.eventDateBlock}>
-                      <div style={styles.eventDay}>{evt.date.split(',')[0]}</div>
-                      <div style={styles.eventFullDate}>{evt.date.split(', ').slice(1).join(', ')}</div>
-                    </div>
-                    <div style={styles.eventDetails}>
-                      <div style={styles.eventName}>
-                        {evt.className}
-                        {evt.full && <span style={styles.fullBadge}>Full</span>}
-                      </div>
-                      <div style={styles.eventMeta}>{evt.time} &middot; {evt.area}</div>
-                    </div>
-                    <div style={evt.full ? styles.eventActionWaitlist : styles.eventAction}>
-                      {evt.full ? 'Join Waitlist \u2192' : 'Register \u2192'}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+            <UpcomingEvents />
 
             {/* ── Request an Event ─────────────────────────── */}
             <RequestAnEvent />
@@ -703,6 +807,29 @@ const styles: Record<string, React.CSSProperties> = {
   eventMeta: {
     fontSize: '14px',
     color: '#6b7280',
+  },
+  eventRowCompact: {
+    display: 'grid',
+    gridTemplateColumns: '160px 200px 140px auto',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '7px 0',
+    borderBottom: '1px solid #f3f4f6',
+    textDecoration: 'none',
+    color: 'inherit',
+  },
+  eventColRegion: {
+    fontSize: '13px',
+    color: '#6b7280',
+  },
+  eventColDate: {
+    fontSize: '14px',
+    fontWeight: 500,
+    color: '#1a1a1a',
+  },
+  eventColTime: {
+    fontSize: '13px',
+    color: '#374151',
   },
   eventAction: {
     fontSize: '14px',

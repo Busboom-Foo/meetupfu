@@ -11,7 +11,9 @@ const wireframePages = [
   {
     group: 'Event System App (events.jointheleague.org)',
     pages: [
-      { path: '/b1-intake', label: 'B1: Request Intake Form', screen: 'Full intake form with site selector' },
+      { path: '/request-public', label: 'Request Public Event', screen: 'Public event request with venue authority question' },
+      { path: '/request-private', label: 'Request Private Event', screen: 'Private event request with venue and group details' },
+      { path: '/b1-intake', label: 'B1: Request Intake Form (legacy)', screen: 'Original intake form' },
       { path: '/b2-donation', label: 'B2: Donation & Confirmation', screen: 'Review card + donation encouragement' },
       { path: '/b3-verification', label: 'B3: Email Verification', screen: 'Holding page' },
       { path: '/b4-dashboard', label: 'B4: Requester Dashboard', screen: 'Request list with status badges' },
