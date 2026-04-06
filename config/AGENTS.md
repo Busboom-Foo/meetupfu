@@ -19,6 +19,22 @@ dotconfig save
 # Load/save a specific file
 dotconfig load -d dev --file app.yaml --stdout
 dotconfig save -d dev --file app.yaml
+
+# Save and encrypt a file with SOPS
+dotconfig save --file secrets.yaml -d dev --encrypt
+
+# Scan for unencrypted secrets at rest
+dotconfig audit
+
+# Show key status and config info
+dotconfig keys
+dotconfig config
+
+# Install pre-commit hook for secret auditing
+dotconfig install-hooks
+
+# Print full agent instructions
+dotconfig agent
 ```
 
 ## Directory layout
