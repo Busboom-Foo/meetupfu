@@ -1,0 +1,59 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: Tech Club Events
+    - navigation [ref=e6]:
+      - link "My Requests" [ref=e7] [cursor=pointer]:
+        - /url: /b4-dashboard
+      - link "Request an Event" [ref=e8] [cursor=pointer]:
+        - /url: /class-page
+      - link "Help / FAQ" [ref=e9] [cursor=pointer]:
+        - /url: /b4-dashboard
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - heading "My Requests" [level=1] [ref=e12]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]:
+            - generic [ref=e16]: Hour of Micro:bit
+            - generic [ref=e17]: Confirmed
+          - generic [ref=e18]:
+            - generic [ref=e19]:
+              - strong [ref=e20]: "Date:"
+              - text: Saturday, April 19, 2026 at 3:30 PM
+            - generic [ref=e21]:
+              - strong [ref=e22]: "Location:"
+              - text: Carmel Mountain Ranch Library, 12095 World Trade Dr, San Diego, CA 92128
+          - generic [ref=e23]:
+            - generic [ref=e24]:
+              - strong [ref=e25]: "Registration Link:"
+              - link "Copy link" [ref=e26] [cursor=pointer]:
+                - /url: /wireframes/b6-voting
+            - strong [ref=e28]: 12 registered
+          - link "View Details →" [ref=e30] [cursor=pointer]:
+            - /url: /b5-detail
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]: Intro to Python
+            - generic [ref=e34]: Discussing
+          - generic [ref=e35]:
+            - generic [ref=e36]:
+              - strong [ref=e37]: "Date:"
+              - text: Pending
+            - generic [ref=e38]:
+              - strong [ref=e39]: "Location:"
+              - text: Oak Park Elementary, 2606 54th St, San Diego, CA 92105
+          - link "View Details →" [ref=e41] [cursor=pointer]:
+            - /url: /b5-detail
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Hour of Micro:bit
+            - generic [ref=e45]: Completed
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - strong [ref=e48]: "Date:"
+              - text: Saturday, March 8, 2026 at 2:00 PM
+            - generic [ref=e49]:
+              - strong [ref=e50]: "Location:"
+              - text: Elementary Institute of Science, 608 E St, San Diego, CA 92101
+          - link "View Details →" [ref=e52] [cursor=pointer]:
+            - /url: /b5-detail

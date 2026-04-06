@@ -1,0 +1,182 @@
+ZIP Code,Neighborhood / City,Type,Region,Latitude,Longitude,Cluster
+91901,Alpine,Standard,East County,32.8351,-116.7664,
+91902,Bonita,Standard,South Bay,32.6578,-117.03,Chula Vista
+91903,Alpine,PO Box,East County,32.8351,-116.7664,
+91905,Boulevard,Standard,East County,32.6684,-116.3012,
+91906,Campo,Standard,East County,32.6062,-116.4689,
+91908,Bonita,PO Box,South Bay,32.6578,-117.03,
+91909,Chula Vista,PO Box,South Bay,32.6401,-117.0842,
+91910,Chula Vista,Standard,South Bay,32.6243,-117.074,Chula Vista
+91911,Chula Vista,Standard,South Bay,32.6082,-117.051,Chula Vista
+91912,Chula Vista,PO Box,South Bay,32.6401,-117.0842,
+91913,Chula Vista (Otay Ranch),Standard,South Bay,32.6315,-116.979,Chula Vista
+91914,Chula Vista (Eastlake),Standard,South Bay,32.6628,-116.9573,Chula Vista
+91915,Chula Vista (Otay Ranch),Standard,South Bay,32.6112,-116.947,Chula Vista
+91916,Descanso,Standard,East County,32.8549,-116.6153,
+91917,Dulzura,Standard,East County,32.6318,-116.715,
+91921,Chula Vista,PO Box,South Bay,32.6401,-117.0842,
+91931,Guatay,Standard,East County,32.8561,-116.5603,
+91932,Imperial Beach,Standard,South Bay,32.5697,-117.1131,Chula Vista
+91933,Imperial Beach,PO Box,South Bay,32.5697,-117.1131,
+91934,Jacumba Hot Springs,Standard,East County,32.616,-116.1862,
+91935,Jamul,Standard,East County,32.717,-116.876,
+91941,La Mesa,Standard,East County,32.7678,-117.0231,La Mesa
+91942,La Mesa,Standard,East County,32.7815,-117.0228,La Mesa
+91943,La Mesa,PO Box,East County,32.7678,-117.0231,
+91944,La Mesa,PO Box,East County,32.7678,-117.0231,
+91945,Lemon Grove,Standard,East County,32.7426,-117.0312,La Mesa
+91946,Lemon Grove,PO Box,East County,32.7426,-117.0312,
+91948,Mount Laguna,Standard,East County,32.8714,-116.4255,
+91950,National City,Standard,South Bay,32.667,-117.099,Chula Vista
+91951,National City,PO Box,South Bay,32.667,-117.099,
+91962,Pine Valley,Standard,East County,32.8233,-116.5285,
+91963,Potrero,Standard,East County,32.6069,-116.6094,
+91976,Spring Valley,PO Box,East County,32.7448,-116.9989,
+91977,Spring Valley,Standard,East County,32.732,-117.001,La Mesa
+91978,Spring Valley,Standard,East County,32.7448,-116.9789,La Mesa
+91979,Spring Valley,PO Box,East County,32.7448,-116.9989,
+91980,Tecate,Standard,East County,32.5774,-116.6282,
+91987,Tecate,PO Box,East County,32.5774,-116.6282,
+92003,Bonsall,Standard,North County Inland,33.2889,-117.2254,
+92004,Borrego Springs,Standard,East County,33.2559,-116.3751,
+92007,Cardiff-by-the-Sea,Standard,North County Coastal,33.0238,-117.2788,Rancho Santa Fe
+92008,Carlsbad,Standard,North County Coastal,33.1581,-117.3376,
+92009,Carlsbad,Standard,North County Coastal,33.0975,-117.2729,Rancho Santa Fe
+92010,Carlsbad,Standard,North County Coastal,33.1367,-117.2859,Rancho Santa Fe
+92011,Carlsbad,Standard,North County Coastal,33.0876,-117.2968,Rancho Santa Fe
+92013,Carlsbad,PO Box,North County Coastal,33.1581,-117.3376,
+92014,Del Mar,Standard,North County Coastal,32.9595,-117.2653,Rancho Santa Fe
+92018,Carlsbad,PO Box,North County Coastal,33.1581,-117.3376,
+92019,El Cajon,Standard,East County,32.7786,-116.9085,La Mesa
+92020,El Cajon,Standard,East County,32.7948,-116.9625,La Mesa
+92021,El Cajon,Standard,East County,32.8188,-116.9126,La Mesa
+92022,El Cajon,PO Box,East County,32.7948,-116.9625,
+92023,Encinitas,PO Box,North County Coastal,33.037,-117.292,
+92024,Encinitas,Standard,North County Coastal,33.0518,-117.2612,Rancho Santa Fe
+92025,Escondido,Standard,North County Inland,33.126,-117.0734,Rancho Santa Fe
+92026,Escondido,Standard,North County Inland,33.1497,-117.1051,
+92027,Escondido,Standard,North County Inland,33.1452,-117.0409,
+92028,Fallbrook,Standard,North County Inland,33.3764,-117.227,
+92029,Escondido,Standard,North County Inland,33.096,-117.108,Rancho Santa Fe
+92030,Escondido,PO Box,North County Inland,33.126,-117.0734,
+92033,Escondido,PO Box,North County Inland,33.126,-117.0734,
+92036,Julian,Standard,East County,33.0786,-116.6018,
+92037,La Jolla,Standard,Central San Diego,32.8422,-117.2617,Clairemont
+92038,La Jolla,PO Box,Central San Diego,32.8422,-117.2617,
+92039,La Jolla,PO Box,Central San Diego,32.8422,-117.2617,
+92040,Lakeside,Standard,East County,32.8563,-116.9042,
+92046,Escondido,PO Box,North County Inland,33.126,-117.0734,
+92049,Oceanside,PO Box,North County Coastal,33.1959,-117.3795,
+92051,Oceanside,PO Box,North County Coastal,33.1959,-117.3795,
+92052,Oceanside,PO Box,North County Coastal,33.1959,-117.3795,
+92054,Oceanside,Standard,North County Coastal,33.2076,-117.3543,
+92055,Camp Pendleton,Military,North County Coastal,33.3047,-117.3631,
+92056,Oceanside,Standard,North County Coastal,33.1845,-117.319,
+92057,Oceanside,Standard,North County Coastal,33.2238,-117.3105,
+92058,Oceanside,Standard,North County Coastal,33.2238,-117.3543,
+92059,Pala,Standard,North County Inland,33.3681,-117.0717,
+92060,Palomar Mountain,Standard,North County Inland,33.3435,-116.8501,
+92061,Pauma Valley,Standard,North County Inland,33.3242,-116.9764,
+92064,Poway,Standard,North County Inland,32.978,-117.0359,Rancho Santa Fe
+92065,Ramona,Standard,North County Inland,33.0416,-116.8682,
+92066,Ranchita,Standard,East County,33.2065,-116.5187,
+92067,Rancho Santa Fe,Standard,North County Coastal,33.0183,-117.2025,Rancho Santa Fe
+92068,San Luis Rey,PO Box,North County Coastal,33.2238,-117.3543,
+92069,San Marcos,Standard,North County Inland,33.1373,-117.1661,Rancho Santa Fe
+92070,Santa Ysabel,Standard,East County,33.1098,-116.6735,
+92071,Santee,Standard,East County,32.8384,-116.9739,La Mesa
+92072,Santee,PO Box,East County,32.8384,-116.9739,
+92074,Poway,PO Box,North County Inland,32.978,-117.0359,
+92075,Solana Beach,Standard,North County Coastal,32.9913,-117.2715,Rancho Santa Fe
+92078,San Marcos,Standard,North County Inland,33.1479,-117.1897,
+92079,San Marcos,PO Box,North County Inland,33.1479,-117.1897,
+92081,Vista,Standard,North County Inland,33.1843,-117.2448,
+92082,Valley Center,Standard,North County Inland,33.2315,-117.0132,
+92083,Vista,Standard,North County Inland,33.2004,-117.2335,
+92084,Vista,Standard,North County Inland,33.2147,-117.1922,
+92085,Vista,PO Box,North County Inland,33.2004,-117.2335,
+92086,Warner Springs,Standard,East County,33.2807,-116.6433,
+92088,Fallbrook,PO Box,North County Inland,33.3764,-117.227,
+92091,Rancho Santa Fe,PO Box,North County Coastal,33.0183,-117.2025,
+92092,UCSD / La Jolla,Unique,Central San Diego,32.8801,-117.234,Clairemont
+92093,UCSD / La Jolla,Unique,Central San Diego,32.8801,-117.234,
+92096,Cal State San Marcos,Unique,North County Inland,33.1283,-117.1595,Rancho Santa Fe
+92101,Downtown San Diego,Standard,Central San Diego,32.7194,-117.1628,Clairemont
+92102,Golden Hill,Standard,Central San Diego,32.7136,-117.1221,La Mesa
+92103,Hillcrest,Standard,Central San Diego,32.7493,-117.1671,Clairemont
+92104,North Park,Standard,Central San Diego,32.7416,-117.1307,La Mesa
+92105,City Heights,Standard,Central San Diego,32.7419,-117.0972,La Mesa
+92106,Point Loma,Standard,Central San Diego,32.7131,-117.2343,Clairemont
+92107,Ocean Beach,Standard,Central San Diego,32.7408,-117.2436,Clairemont
+92108,Mission Valley,Standard,Central San Diego,32.7747,-117.1522,Clairemont
+92109,Pacific Beach,Standard,Central San Diego,32.7958,-117.235,Clairemont
+92110,Old Town / Morena,Standard,Central San Diego,32.7682,-117.1977,Clairemont
+92111,Linda Vista,Standard,Central San Diego,32.7976,-117.1693,Clairemont
+92112,Downtown San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92113,Logan Heights / Barrio Logan,Standard,Central San Diego,32.6968,-117.1186,Chula Vista
+92114,Encanto,Standard,Central San Diego,32.7078,-117.0536,La Mesa
+92115,College Area,Standard,Central San Diego,32.7598,-117.0703,La Mesa
+92116,University Heights,Standard,Central San Diego,32.7606,-117.1255,La Mesa
+92117,Clairemont,Standard,Central San Diego,32.8272,-117.2028,Clairemont
+92118,Coronado,Standard,South Bay,32.6775,-117.1681,Chula Vista
+92119,San Carlos,Standard,Central San Diego,32.7753,-117.0299,La Mesa
+92120,Del Cerro / Allied Gardens,Standard,Central San Diego,32.785,-117.0695,La Mesa
+92121,Sorrento Valley,Standard,Central San Diego,32.9013,-117.2113,Clairemont
+92122,University City,Standard,Central San Diego,32.8609,-117.212,Clairemont
+92123,Kearny Mesa,Standard,Central San Diego,32.8102,-117.1422,Clairemont
+92124,Tierrasanta,Standard,Central San Diego,32.8236,-117.1015,Clairemont
+92126,Mira Mesa,Standard,North County Inland,32.9118,-117.1443,Clairemont
+92127,Rancho Bernardo,Standard,North County Inland,33.0245,-117.1069,Rancho Santa Fe
+92128,Rancho Bernardo,Standard,North County Inland,33.0002,-117.0715,Rancho Santa Fe
+92129,Rancho Penasquitos,Standard,North County Inland,32.9614,-117.1073,Rancho Santa Fe
+92130,Carmel Valley,Standard,North County Coastal,32.936,-117.2273,Clairemont
+92131,Scripps Ranch,Standard,Central San Diego,32.9122,-117.1042,Clairemont
+92132,Naval Training Center,Military,Central San Diego,32.736,-117.213,
+92134,Naval Medical Center,Military,Central San Diego,32.7151,-117.153,
+92135,NAS North Island,Military,South Bay,32.6991,-117.2027,
+92136,Naval Base San Diego,Military,Central San Diego,32.6839,-117.1242,
+92137,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92138,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92139,Paradise Hills,Standard,South Bay,32.6828,-117.0428,Chula Vista
+92140,MCRD San Diego,Military,Central San Diego,32.7415,-117.1952,
+92142,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92143,San Ysidro,Standard,South Bay,32.556,-117.0418,Chula Vista
+92145,MCAS Miramar,Military,Central San Diego,32.8684,-117.1373,
+92147,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92149,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92150,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92152,Naval Base Point Loma,Military,Central San Diego,32.692,-117.248,
+92153,Nestor,Standard,South Bay,32.5766,-117.0973,Chula Vista
+92154,Otay Mesa,Standard,South Bay,32.5758,-117.026,Chula Vista
+92155,NAB Coronado,Military,South Bay,32.6771,-117.1581,
+92158,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92159,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92160,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92161,VA Medical Center,Unique,Central San Diego,32.8741,-117.2318,Clairemont
+92163,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92165,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92166,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92167,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92168,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92169,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92170,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92171,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92172,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92173,San Ysidro,Standard,South Bay,32.5535,-117.051,Chula Vista
+92174,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92175,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92176,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92177,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92178,Coronado,PO Box,South Bay,32.6775,-117.1681,
+92179,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92182,SDSU / College Area,Unique,Central San Diego,32.7757,-117.0709,La Mesa
+92186,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92187,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92191,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92192,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92193,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92195,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92196,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92197,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92198,San Diego,PO Box,Central San Diego,32.7194,-117.1628,
+92199,San Diego,PO Box,Central San Diego,32.7194,-117.1628,

@@ -1,0 +1,16 @@
+Staff ID,Name,Region,Day,Start,End
+S01,Alex,Central San Diego,Saturday,10:00,14:00
+S01,Alex,Central San Diego,Wednesday,15:00,17:00
+S01,Alex,North County Coastal,Thursday,15:00,17:00
+S01,Alex,North County Coastal,Saturday,10:00,14:00
+S02,Jordan,Central San Diego,Tuesday,15:00,17:00
+S02,Jordan,Central San Diego,Friday,17:00,18:30
+S02,Jordan,East County,Saturday,10:00,14:00
+S02,Jordan,East County,Thursday,15:00,17:00
+S03,Maria,North County Coastal,Saturday,10:00,14:00
+S03,Maria,North County Coastal,Wednesday,15:00,17:00
+S04,Sam,North County Inland,Saturday,10:00,14:00
+S04,Sam,North County Inland,Monday,15:00,17:00
+S05,Priya,South Bay,Wednesday,15:00,17:00
+S06,Chris,East County,Tuesday,17:00,18:30
+S07,Lena,North County Inland,Friday,15:00,17:00

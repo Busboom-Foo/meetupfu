@@ -1,63 +1,36 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import AppLayout from './components/AppLayout';
-import Login from './pages/Login';
-import Home from './pages/Home';
-import Chat from './pages/Chat';
-import About from './pages/About';
-import McpSetup from './pages/McpSetup';
-import NotFound from './pages/NotFound';
-import Account from './pages/Account';
-import Channels from './pages/Channels';
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminLayout from './pages/admin/AdminLayout';
-import EnvironmentInfo from './pages/admin/EnvironmentInfo';
-import DatabaseViewer from './pages/admin/DatabaseViewer';
-import ConfigPanel from './pages/admin/ConfigPanel';
-import LogViewer from './pages/admin/LogViewer';
-import SessionViewer from './pages/admin/SessionViewer';
-import PermissionsPanel from './pages/admin/PermissionsPanel';
-import ScheduledJobsPanel from './pages/admin/ScheduledJobsPanel';
-import ImportExport from './pages/admin/ImportExport';
-import UsersPanel from './pages/admin/UsersPanel';
+import WireframeLayout from './pages/wireframes/components/WireframeLayout';
+import WireframeIndex from './pages/wireframes/WireframeIndex';
+import ClassPage from './pages/wireframes/ClassPage';
+import A2EventRegistration from './pages/wireframes/A2EventRegistration';
+import B1Intake from './pages/wireframes/B1Intake';
+import B2Donation from './pages/wireframes/B2Donation';
+import B3Verification from './pages/wireframes/B3Verification';
+import B4Dashboard from './pages/wireframes/B4Dashboard';
+import B5Detail from './pages/wireframes/B5Detail';
+import B6Voting from './pages/wireframes/B6Voting';
+import RequestPublic from './pages/wireframes/RequestPublic';
+import RequestPrivate from './pages/wireframes/RequestPrivate';
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          {/* Login (standalone, no layout) */}
-          <Route path="/login" element={<Login />} />
-
-          {/* Admin login (standalone, no layout) */}
-          <Route path="/admin" element={<AdminLogin />} />
-
-          {/* All authenticated routes share AppLayout (sidebar + topbar) */}
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/mcp-setup" element={<McpSetup />} />
-
-            {/* Admin pages — auth-gated by AdminLayout */}
-            <Route element={<AdminLayout />}>
-              <Route path="/admin/users" element={<UsersPanel />} />
-              <Route path="/admin/env" element={<EnvironmentInfo />} />
-              <Route path="/admin/db" element={<DatabaseViewer />} />
-              <Route path="/admin/config" element={<ConfigPanel />} />
-              <Route path="/admin/logs" element={<LogViewer />} />
-              <Route path="/admin/sessions" element={<SessionViewer />} />
-              <Route path="/admin/permissions" element={<PermissionsPanel />} />
-              <Route path="/admin/scheduler" element={<ScheduledJobsPanel />} />
-              <Route path="/admin/import-export" element={<ImportExport />} />
-              <Route path="/admin/channels" element={<Channels />} />
-            </Route>
-
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </AuthProvider>
+      <Routes>
+        {/* Wireframe pages — no auth, no server dependency */}
+        <Route path="/" element={<WireframeIndex />} />
+        <Route path="/class-page" element={<ClassPage />} />
+        <Route path="/a2-registration" element={<A2EventRegistration />} />
+        <Route element={<WireframeLayout />}>
+          <Route path="/b1-intake" element={<B1Intake />} />
+          <Route path="/request-public" element={<RequestPublic />} />
+          <Route path="/request-private" element={<RequestPrivate />} />
+          <Route path="/b2-donation" element={<B2Donation />} />
+          <Route path="/b3-verification" element={<B3Verification />} />
+          <Route path="/b4-dashboard" element={<B4Dashboard />} />
+          <Route path="/b5-detail" element={<B5Detail />} />
+          <Route path="/b6-voting" element={<B6Voting />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

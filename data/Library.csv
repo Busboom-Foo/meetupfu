@@ -1,0 +1,93 @@
+﻿OID_,WEBSITE,ADDRESS,DISTRICT,NAME,TYPE,PHONE,ZIP,CITY,DATA_SRC,UPDATE_DATE
+1,https://www.chulavistaca.gov/departments/library,365 F Street,Chula Vista,Civic Center Branch,Public,(619) 691-5069,91910,"Chula Vista, CA",Chula Vista,7/25/2023 14:09:20
+2,https://www.chulavistaca.gov/departments/library,389 Orange Avenue,Chula Vista,South Chula Vista Branch,Public,(619) 585-5755,91911,"Chula Vista, CA",Chula Vista,7/25/2023 14:09:25
+3,https://coronadolibrary.org/,640 Orange Avenue,Coronado,Coronado Public,Public,(619) 522-7390,92118,"Coronado, CA",City of Coronado website,7/25/2023 13:36:25
+4,https://www.escondido.gov/162/Library,239 South Kalmia Street,Escondido,Escondido Public,Public,(760) 839-4683,92025,"Escondido, CA",City of Escondido,9/9/2024 11:14:16
+5,https://www.nationalcityca.gov/government/library,1401 National City Blvd,National City,National City Public,Public,(619) 336-4241,91950,"National City, CA",National City Website,9/9/2024 0:00:00
+6,https://www.ci.oceanside.ca.us/gov/lib/,330 North Coast Highway,Oceanside,Oceanside Civic Center Library,Public,(760) 435-5600,92054,"Oceanside, CA",City of Oceanside website,3/24/2020 0:00:00
+7,https://www.ci.oceanside.ca.us/gov/lib/,3861 B Mission Avenue,Oceanside,Mission Branch,Public,(760) 435-5600,92054,"Oceanside, CA",City of Oceanside website,7/25/2023 0:00:00
+8,http://www.sandiego.gov/public-library/,4255 Mt. Abernathy Avenue,San Diego Public (City),Balboa,Public,(858) 573-1390,92117,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+9,http://www.sandiego.gov/public-library/,721 San Pasqual St,San Diego Public (City),Mountain View/Beckwourth,Public,(619) 527-3404,92113,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+10,http://www.sandiego.gov/public-library/,5188 Zion Avenue,San Diego Public (City),Allied Gardens / Benjamin,Public,(619) 533-3970,92120,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+11,http://www.sandiego.gov/public-library/,12095 World Trade Dr.,San Diego Public (City),Carmel Mountain Ranch,Public,(858) 538-8181,92128,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+12,http://www.sandiego.gov/public-library/,3919 Townsgate Drive,San Diego Public (City),Carmel Valley,Public,(858) 552-1668,92130,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+13,http://www.sandiego.gov/public-library/,2920 Burgener Boulevard,San Diego Public (City),Clairemont,Public,(858) 581-9935,92110,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+14,http://www.sandiego.gov/public-library/,4121 Adams Avenue,San Diego Public (City),Kensington - Normal Heights,Public,(619) 533-3974,92116,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+15,http://www.sandiego.gov/public-library/,7555 Draper Ave,San Diego Public (City),La Jolla/Riford,Public,(858) 552-1657,92037,"La Jolla, CA",City of San Diego,7/25/2023 12:56:04
+16,http://www.sandiego.gov/public-library/,2160 Ulric Street,San Diego Public (City),Linda Vista,Public,(858) 573-1399,92111,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+17,http://www.sandiego.gov/public-library/,567 South 28th Street,San Diego Public (City),Logan Heights,Public,(619) 533-3968,92113,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+18,http://www.sandiego.gov/public-library/,5148 Market Street,San Diego Public (City),Valencia Park /Malcolm X,Public,(619) 527-3405,92114,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+19,http://www.sandiego.gov/public-library/,8405 New Salem St,San Diego Public (City),Mira Mesa,Public,(858) 538-8165,92126,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+20,http://www.sandiego.gov/public-library/,215 West Washington St,San Diego Public (City),Mission Hills-Hillcrest/Knox,Public,(619) 692-4910,92103,"San Diego, CA",City of San Diego,9/12/2024 12:56:04
+21,http://www.sandiego.gov/public-library/,4616 Clairemont Drive,San Diego Public (City),North Clairemont,Public,(858) 581-9931,92117,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+22,http://www.sandiego.gov/public-library/,3795 31st Street,San Diego Public (City),North Park,Public,(619) 533-3972,92104,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+23,http://www.sandiego.gov/public-library/,2802 54th Street,San Diego Public (City),Oak Park,Public,(619) 527-3406,92105,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+24,http://www.sandiego.gov/public-library/,4801 Santa Monica Avenue,San Diego Public (City),Ocean Beach,Public,(619) 531-1532,92107,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+25,http://www.sandiego.gov/public-library/,3003 Coronado Avenue,San Diego Public (City),Otay Mesa/Nestor,Public,(619) 424-0474,92154,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+26,http://www.sandiego.gov/public-library/,5922 Rancho Hills Drive,San Diego Public (City),Paradise Hills,Public,(619) 527-3461,92139,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+27,http://www.sandiego.gov/public-library/,3701 Voltaire Street,San Diego Public (City),Point Loma/Hervey,Public,(619) 531-1539,92107,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+28,http://www.sandiego.gov/public-library/,17110 Bernardo Center Drive,San Diego Public (City),Rancho Bernardo,Public,(858) 538-8163,92128,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+29,http://www.sandiego.gov/public-library/,13330 Salmon River Road,San Diego Public (City),Rancho Penasquitos,Public,(858) 538-8159,92129,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+30,http://www.sandiego.gov/public-library/,7265 Jackson Dr,San Diego Public (City),San Carlos,Public,(619) 527-3430,92119,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+31,http://www.sandiego.gov/public-library/,4235 Beyer Blvd,San Diego Public (City),San Ysidro,Public,(619) 424-0475,92173,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+32,http://www.sandiego.gov/public-library/,10301 Scripps Lake Drive,San Diego Public (City),Scripps Miramar Ranch,Public,(858) 538-8158,92131,"San Diego, CA",City of San Diego,9/9/2024 12:56:04
+33,http://www.sandiego.gov/public-library/,9005 Aero Dr,San Diego Public (City),Serra Mesa-Kearny Mesa,Public,(858) 573-1396,92123,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+34,http://www.sandiego.gov/public-library/,7900 Paradise Valley Rd,San Diego Public (City),Skyline Hills,Public,(619) 527-3485,92139,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+35,http://www.sandiego.gov/public-library/,4275 Cass St,San Diego Public (City),Pacific Beach/Taylor,Public,(858) 581-9934,92109,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+36,http://www.sandiego.gov/public-library/,4985 La Cuenta Drive,San Diego Public (City),Tierrasanta,Public,(858) 573-1384,92124,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+37,http://www.sandiego.gov/public-library/,8820 Judicial Dr,San Diego Public (City),North University Community,Public,(858) 581-9637,92112,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+38,http://www.sandiego.gov/public-library/,4193 Park Boulevard,San Diego Public (City),University Heights,Public,(619) 692-4912,92103,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+39,http://www.sandiego.gov/public-library/,3795 Fairmount Ave.,San Diego Public (City),City Heights/Weingart,Public,(619) 641-6100,92105,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+40,http://www.sandiego.gov/public-library/,2123 Fenton Parkway,San Diego Public (City),Mission Valley,Public,(858) 573-5007,92108,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+41,http://www.sandiego.gov/public-library/,6600 Montezuma Road,San Diego Public (City),College-Rolando,Public,(619) 533-3902,92115,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+42,http://www.sandiego.gov/public-library/,4155 Governor Drive,San Diego Public (City),University Community,Public,(858) 552-1655,92122,"San Diego, CA",City of San Diego,7/25/2023 12:56:04
+43,https://library.carlsbadca.gov/our-library,1775 Dove Lane,Carlsbad,Carlsbad City Library,Public,(442)339-2049,92011,"Carlsbad, CA",Carlsbad,7/25/2023 17:00:00
+44,https://library.carlsbadca.gov/our-library,1250 Carlsbad Village Dr,Carlsbad,Georgina Cole Library,Public,(442)339-2870,92008,"Carlsbad, CA",Carlsbad,7/25/2023 17:00:00
+45,https://library.carlsbadca.gov/our-library,3368 Eureka Pl,Carlsbad,Library Learning Center,Public,(442)339-5500,92008,"Carlsbad, CA",Carlsbad,7/25/2023 17:00:00
+46,https://www.chulavistaca.gov/departments/library,"2015 Birch Road, Suite 409",Chula Vista,Otay Ranch Branch,Public,(619) 397-5740,91915,"Chula Vista, CA",Chula Vista,7/25/2023 14:08:04
+47,https://www.sdcl.org/,31505 Old River Rd.,San Diego County,24/7 Library To Go - Bonsall,Public,(858) 694-2415,92003,"Bonsall, CA",SDCL,7/25/2023 0:00:00
+48,https://www.sdcl.org/,39923 Ribbonwood Road,San Diego County,24/7 Library To Go - Boulevard,Public,(858) 694-2415,91905,"Boulevard, CA",SDCL,7/25/2023 0:00:00
+49,https://www.sdcl.org/,"5560 Overland Avenue, Ste 110",San Diego County,24/7 Library To Go - County Operations Center,Public,(858) 694-2415,92123,"San Diego, CA",SDCL,7/25/2023 0:00:00
+50,https://www.sdcl.org/,690 Oxford Street,San Diego County,24/7 Library To Go - South Region,Public,(858) 694-2415,91911,"Chula Vista, CA",SDCL,7/25/2023 0:00:00
+51,https://www.sdcl.org/,10433 Reserve Drive,San Diego County,4S Ranch Branch,Public,(858) 673-4697,92127,"San Diego, CA ",SDCL,7/25/2023 0:00:00
+52,https://www.sdcl.org/,1752 Alpine Blvd.,San Diego County,Alpine Branch,Public,(619) 445-4221,91901,"Alpine, CA",SDCL,7/25/2023 0:00:00
+53,https://www.sdcl.org/,4375 Bonita Rd.,San Diego County,Bonita-Sunnyside Branch,Public,(619) 475-4642,91902,"Bonita, CA",SDCL,7/25/2023 0:00:00
+54,https://www.sdcl.org/,2580 Country Club Road,San Diego County,Borrego Springs Branch,Public,(760) 767-5761,92004,"Borrego Springs, CA",SDCL,7/25/2023 0:00:00
+55,https://www.sdcl.org/,31356 Highway 94,San Diego County,Campo-Morena Village Branch,Public,(619) 478-5945,91906,"Campo, CA",SDCL,7/25/2023 0:00:00
+56,https://www.sdcl.org/,2081 Newcastle Ave.,San Diego County,Cardiff-by-the-Sea Branch,Public,(760) 753-4027,92007,"Cardiff-by-the-Sea,",SDCL,7/25/2023 0:00:00
+57,https://www.sdcl.org/,9805 Campo Rd. #180,San Diego County,Casa de Oro Branch,Public,(619) 463-3236,91977,"Spring Valley, CA",SDCL,7/25/2023 0:00:00
+58,https://www.sdcl.org/,105 Juanita Lane,San Diego County,Crest Branch,Public,(619) 442-7083,92021,"El Cajon, CA",SDCL,7/25/2023 0:00:00
+59,https://www.sdcl.org/,"1309 Camino Del Mar, Del Mar",San Diego County,Del Mar Branch,Public,(858) 755-1666,92014,"Del Mar, CA",SDCL,7/25/2023 0:00:00
+60,https://www.sdcl.org/,9545 River Dr.,San Diego County,Descanso Branch,Public,(619) 445-5279,91916,"Descanso, CA",SDCL,7/25/2023 0:00:00
+61,https://www.sdcl.org/,540 Cornish Drive,San Diego County,Encinitas Branch,Public,(760) 753-7376,92024,"Encinitas, CA 92024",SDCL,7/25/2023 0:00:00
+62,https://www.sdcl.org/,124 S. Mission Rd.,San Diego County,Fallbrook Branch,Public,(760) 731-4650,92028,"Fallbrook, CA",SDCL,7/25/2023 0:00:00
+63,https://www.sdcl.org/,576 Garfield Ave.,San Diego County,Fletcher Hills Branch,Public,(619) 466-1132,92020,"El Cajon, CA ",SDCL,7/25/2023 0:00:00
+64,https://www.sdcl.org/,810 Imperial Beach Blvd.,San Diego County,Imperial Beach Branch,Public,(619) 424-6981,91932,"Imperial Beach, CA ",SDCL,7/25/2023 0:00:00
+65,https://www.sdcl.org/,44605 Old Hwy. 80,San Diego County,Jacumba Branch,Public,(619) 766-4608,91934,"Jacumba, CA",SDCL,7/25/2023 0:00:00
+66,https://www.sdcl.org/,1850 Highway 78,San Diego County,Julian Branch,Public,(760) 765-0370,92036,"Julian, CA",SDCL,7/25/2023 0:00:00
+67,https://www.sdcl.org/,8074 Allison Avenue,San Diego County,La Mesa Branch,Public,(619) 469-2151,91942,"La Mesa, CA",SDCL,7/25/2023 0:00:00
+68,https://www.sdcl.org/,12428  Woodside Ave,San Diego County,Lakeside Branch,Public,(619) 443-1811,92040,"Lakeside, CA",SDCL,7/25/2023 0:00:00
+69,https://www.sdcl.org/,3001 School Ln.,San Diego County,Lemon Grove Branch,Public,(619) 463-9819,91945,"Lemon Grove, CA",SDCL,7/25/2023 0:00:00
+70,https://www.sdcl.org/,2725 Granger Ave.,San Diego County,Lincoln Acres Branch,Public,(619) 475-9880,91950,"National City, CA",SDCL,7/25/2023 0:00:00
+71,https://www.sdcl.org/,28804 Old Hwy. 80,San Diego County,Pine Valley Branch,Public,(619) 473-8022,91962,"Pine Valley, CA",SDCL,7/25/2023 0:00:00
+72,https://www.sdcl.org/,24883 Potrero Valley Rd.,San Diego County,Potrero Branch,Public,(619) 478-5978,91963,"Potrero, CA",SDCL,7/25/2023 0:00:00
+73,https://www.sdcl.org/,13137 Poway Rd,San Diego County,Poway Branch,Public,(858) 513-2900,92064,"Poway, CA",SDCL,7/25/2023 0:00:00
+74,https://www.sdcl.org/,1275 Main Street,San Diego County,Ramona Branch,Public,(760) 788-5270,92065,"Ramona, CA",SDCL,7/25/2023 0:00:00
+75,https://www.sdcl.org/,11555 Via Rancho San Diego,San Diego County,Rancho San Diego Branch,Public,(619) 660-5370,92019,"El Cajon, CA",SDCL,7/25/2023 0:00:00
+76,https://www.sdcl.org/,17040 Avenida de Acacias,San Diego County,Rancho Santa Fe Branch,Public,(858) 756-2512,92067,"Rancho Santa Fe, CA",SDCL,7/25/2023 0:00:00
+77,https://www.sdcl.org/,2 Civic Center Drive,San Diego County,San Marcos Branch,Public,(760) 891-3000,92069,"San Marcos, CA",SDCL,7/25/2023 0:00:00
+78,https://www.sdcl.org/,9225 Carlton Hills Blvd. #17,San Diego County,Santee Branch,Public,(619) 448-1863,92071,"Santee, CA",SDCL,7/25/2023 0:00:00
+79,https://www.sdcl.org/,157 Stevens Ave.,San Diego County,Solana Beach Branch Earl Warren Middle School,Public,(858) 755-1404,92075,"Solana Beach, CA",SDCL,7/25/2023 0:00:00
+80,https://www.sdcl.org/,836 Kempton St.,San Diego County,Spring Valley Branch,Public,(619) 463-3006,91977,"Spring Valley, CA",SDCL,7/25/2023 0:00:00
+81,https://www.sdcl.org/,29200 Cole Grade Rd.,San Diego County,Valley Center Branch,Public,(760) 749-1305,92082,"Valley Center, CA",SDCL,7/25/2023 0:00:00
+82,https://www.sdcl.org/,700 Eucalyptus Ave.,San Diego County,Vista Branch,Public, (760) 643-510,92084,"Vista, CA",SDCL,7/25/2023 0:00:00
+83,https://www.sdcl.org/,201 E. Douglas,San Diego County,El Cajon Branch,Public,(619) 588-3718,92020,"El Cajon, CA ",SDCL,7/25/2023 0:00:00
+84,https://www.ci.oceanside.ca.us/gov/lib/,804 Pier View Way #101,Oceanside,Oceanside READS Literacy Center,Public,(760) 435-5680,92054,"Oceanside, CA",City of Oceanside website,7/25/2023 14:20:48
+85,https://www.oceansidelibrary.org/about-us/hours-and-locations,2855 Cedar Rd,Oceanside,John Landes Community Center Library,Public,(760)435-5642,92056,"Oceanside, CA",City of Oceanside website,7/25/2023 9:24:45
+86,https://www.oceansidelibrary.org/about-us/hours-and-locations,455 Country Club Lane,Oceanside,Country Club Lane Senior Center Mini-Library,Public,,92054,"Oceanside, CA",City of Oceanside website,7/25/2023 9:31:32
+87,https://www.oceansidelibrary.org/about-us/hours-and-locations,3302 Senior Center Dr,Oceanside,El Corazon Senior Center Mini-Library,Public,,92056,"Oceanside, CA",City of Oceanside website,7/25/2023 9:31:37
+88,https://www.oceansidelibrary.org/about-us/hours-and-locations,5306 North River Rd,Oceanside,Melba Bishop Recreation Center Mini-Library,,,92057,"Oceanside, CA",City of Oceanside website,7/25/2023 9:36:24
+89,https://www.sdcl.org/,501 N El Camino Real,San Diego County,24/7 Library Kiosk Encinitas,Public,(858) 694-2415,92024,"Encinitas, CA",SDCL,7/25/2023 10:32:28
+90,https://www.oceansidelibrary.org/about-us/hours-and-locations,709 San Diego Street,Oceanside,Joe Balderrama Recreation Center,,,92056,"Oceanside, CA",,
+91,http://www.sandiego.gov/public-library/,330 Park Blvd,San Diego Public (City),San Diego Central,San Diego,(619) 236-5800,92101,"San Diego, CA",City of San Diego,9/9/2024 15:37:11
+92,http://www.sandiego.gov/public-library/,12911 Pacific Place,San Diego Public (City),Pacific Highlands Ranch,San Diego,(858) 523-7052,92130,"San Diego, CA",City of San Diego,10/30/2024 8:52:30

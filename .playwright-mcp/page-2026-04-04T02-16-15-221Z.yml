@@ -1,0 +1,184 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e7] [cursor=pointer]: (858) 284-0481
+      - generic [ref=e8] [cursor=pointer]: Location & Contact
+      - generic [ref=e9] [cursor=pointer]: Client Portal
+    - generic [ref=e10]:
+      - link "The LEAGUE" [ref=e11] [cursor=pointer]:
+        - /url: /class-page
+        - generic [ref=e13]: The LEAGUE
+      - navigation [ref=e14]:
+        - link "Home" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Programs" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Classes" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: "#"
+        - link "Impact" [ref=e19] [cursor=pointer]:
+          - /url: "#"
+        - link "Support" [ref=e20] [cursor=pointer]:
+          - /url: "#"
+        - link "Curriculum" [ref=e21] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e22]:
+        - link "Donate" [ref=e23] [cursor=pointer]:
+          - /url: "#"
+        - link "Volunteer" [ref=e24] [cursor=pointer]:
+          - /url: "#"
+  - main [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - heading "Hour of Micro:bit — Meetup" [level=1] [ref=e29]
+        - paragraph [ref=e30]: Students experiment with LEDs, sensors, and radio communications to see how code controls physical hardware.
+      - generic [ref=e32]: Micro:bit image
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - heading "Course Overview" [level=2] [ref=e37]
+          - paragraph [ref=e38]: Hour of Micro:bit is a gentle introduction to physical computing using the BBC Micro:bit, a pocket-sized programmable computer. In this short workshop, students write programs to control the Micro:bit’s LED display, buttons, sensors, and radio communication capabilities. The Micro:bit’s approachable interface and immediate physical feedback make it perfect for beginners to understand how code controls hardware. This course serves as both a standalone introduction to microcontrollers and as preparation for our more advanced robotics courses. Students leave with a concrete understanding of how programming translates to real-world actions.
+        - complementary [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: Level
+            - generic [ref=e42]: beginner
+          - generic [ref=e43]:
+            - generic [ref=e44]: Topics
+            - list [ref=e45]:
+              - listitem [ref=e46]: microcontrollers
+              - listitem [ref=e47]: electronics
+              - listitem [ref=e48]: programming
+          - generic [ref=e49]:
+            - generic [ref=e50]: Curriculum
+            - link "View Curriculum" [ref=e51] [cursor=pointer]:
+              - /url: https://league-curriculum.github.io/HourofMicrobit/
+      - generic [ref=e52]:
+        - heading "Part of These Programs" [level=3] [ref=e53]
+        - generic [ref=e54]:
+          - link "Robot Garage Robot Garage Hands-on electronics, robotics, and fabrication projects for students of any level." [ref=e55] [cursor=pointer]:
+            - /url: /programs/robot-garage-program
+            - generic [ref=e57]: Robot Garage
+            - generic [ref=e58]:
+              - heading "Robot Garage" [level=4] [ref=e59]
+              - paragraph [ref=e60]: Hands-on electronics, robotics, and fabrication projects for students of any level.
+          - link "Tech Club Tech Club Free introductory classes in Python, Java, robotics, and electronics offered at schools, libraries and online" [ref=e61] [cursor=pointer]:
+            - /url: /programs/tech-club
+            - generic [ref=e63]: Tech Club
+            - generic [ref=e64]:
+              - heading "Tech Club" [level=4] [ref=e65]
+              - paragraph [ref=e66]: Free introductory classes in Python, Java, robotics, and electronics offered at schools, libraries and online
+      - generic [ref=e67]:
+        - heading "Upcoming Events" [level=2] [ref=e68]
+        - paragraph [ref=e69]: These sessions are already scheduled. Click to register.
+        - generic [ref=e70]:
+          - link "Saturday April 19, 2026 Hour of Micro:bit 3:30 PM · North County Register →" [ref=e71] [cursor=pointer]:
+            - /url: /a2-registration
+            - generic [ref=e72]:
+              - generic [ref=e73]: Saturday
+              - generic [ref=e74]: April 19, 2026
+            - generic [ref=e75]:
+              - generic [ref=e76]: Hour of Micro:bit
+              - generic [ref=e77]: 3:30 PM · North County
+            - generic [ref=e78]: Register →
+          - link "Wednesday April 23, 2026 Hour of Micro:bit Full 4:00 PM · Central San Diego Join Waitlist →" [ref=e79] [cursor=pointer]:
+            - /url: /a2-registration
+            - generic [ref=e80]:
+              - generic [ref=e81]: Wednesday
+              - generic [ref=e82]: April 23, 2026
+            - generic [ref=e83]:
+              - generic [ref=e84]:
+                - text: Hour of Micro:bit
+                - generic [ref=e85]: Full
+              - generic [ref=e86]: 4:00 PM · Central San Diego
+            - generic [ref=e87]: Join Waitlist →
+          - link "Saturday April 26, 2026 Intro to Python 10:00 AM · North County Register →" [ref=e88] [cursor=pointer]:
+            - /url: /a2-registration
+            - generic [ref=e89]:
+              - generic [ref=e90]: Saturday
+              - generic [ref=e91]: April 26, 2026
+            - generic [ref=e92]:
+              - generic [ref=e93]: Intro to Python
+              - generic [ref=e94]: 10:00 AM · North County
+            - generic [ref=e95]: Register →
+          - link "Saturday May 3, 2026 Hour of Micro:bit 2:00 PM · East County Register →" [ref=e96] [cursor=pointer]:
+            - /url: /a2-registration
+            - generic [ref=e97]:
+              - generic [ref=e98]: Saturday
+              - generic [ref=e99]: May 3, 2026
+            - generic [ref=e100]:
+              - generic [ref=e101]: Hour of Micro:bit
+              - generic [ref=e102]: 2:00 PM · East County
+            - generic [ref=e103]: Register →
+          - link "Wednesday May 7, 2026 Game Design with Scratch 4:00 PM · North County Register →" [ref=e104] [cursor=pointer]:
+            - /url: /a2-registration
+            - generic [ref=e105]:
+              - generic [ref=e106]: Wednesday
+              - generic [ref=e107]: May 7, 2026
+            - generic [ref=e108]:
+              - generic [ref=e109]: Game Design with Scratch
+              - generic [ref=e110]: 4:00 PM · North County
+            - generic [ref=e111]: Register →
+      - generic [ref=e113]:
+        - heading "Want this class for your group?" [level=2] [ref=e114]
+        - paragraph [ref=e115]: Bring a free Hour of Micro:bit workshop to your school, library, scout troop, or community center. We'll match you with an instructor and coordinate everything.
+        - link "Request an Event →" [ref=e116] [cursor=pointer]:
+          - /url: /b1-intake
+  - contentinfo [ref=e117]:
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - heading "The LEAGUE" [level=3] [ref=e121]
+          - paragraph [ref=e122]: We prepare young people for the science and technology careers of the 21st century through real coding education, professional mentorship, and project-based learning.
+          - paragraph [ref=e123]: "501(c)(3) Tax ID: 20-4744610."
+        - generic [ref=e124]:
+          - heading "Visit & Contact" [level=4] [ref=e125]
+          - paragraph [ref=e126]:
+            - text: "12625 High Bluff Drive #113, San Diego, CA 92130"
+            - link "Get directions" [ref=e127] [cursor=pointer]:
+              - /url: https://goo.gl/maps/GUdss2BayCqGmDCLA
+          - paragraph [ref=e128]:
+            - link "(858) 284-0481" [ref=e129] [cursor=pointer]:
+              - /url: tel:18582840481
+            - link "info@jointheleague.org" [ref=e130] [cursor=pointer]:
+              - /url: mailto:info@jointheleague.org
+        - generic [ref=e131]:
+          - heading "Stay Connected" [level=4] [ref=e132]
+          - list [ref=e133]:
+            - listitem [ref=e134]:
+              - link "Facebook" [ref=e135] [cursor=pointer]:
+                - /url: https://www.facebook.com/LeagueOfAmazingProgrammers
+            - listitem [ref=e136]:
+              - link "Twitter" [ref=e137] [cursor=pointer]:
+                - /url: https://twitter.com/LEAGUEofAmazing
+            - listitem [ref=e138]:
+              - link "Instagram" [ref=e139] [cursor=pointer]:
+                - /url: https://www.instagram.com/theleagueofamazingprogrammers/
+            - listitem [ref=e140]:
+              - link "YouTube" [ref=e141] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCkUULukaHTW8ljTXKXXGE5A
+            - listitem [ref=e142]:
+              - link "LinkedIn" [ref=e143] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/the-league-of-amazing-programmers
+      - navigation [ref=e144]:
+        - link "Home" [ref=e145] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e146] [cursor=pointer]:
+          - /url: /about/
+        - link "Impact" [ref=e147] [cursor=pointer]:
+          - /url: /about/impact/
+        - link "News" [ref=e148] [cursor=pointer]:
+          - /url: /news/
+        - link "Classes" [ref=e149] [cursor=pointer]:
+          - /url: /classes/
+        - link "Policies" [ref=e150] [cursor=pointer]:
+          - /url: /about/policies/
+        - link "Support" [ref=e151] [cursor=pointer]:
+          - /url: /support/
+        - link "Volunteer" [ref=e152] [cursor=pointer]:
+          - /url: /support/volunteer/
+        - link "Create a Fundraiser" [ref=e153] [cursor=pointer]:
+          - /url: /donate/create-a-fundraiser/
+        - link "Curriculum" [ref=e154] [cursor=pointer]:
+          - /url: https://curriculum.jointheleague.org/
+      - generic [ref=e155]: © 2026 The LEAGUE of Amazing Programmers.
