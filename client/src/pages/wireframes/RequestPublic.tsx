@@ -70,6 +70,7 @@ export default function RequestPublic() {
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null);
   const [showVenueSuggestions, setShowVenueSuggestions] = useState(false);
   const [isNewVenue, setIsNewVenue] = useState(false);
+  const [newVenueName, setNewVenueName] = useState('');
   const [newVenueStreet, setNewVenueStreet] = useState('');
   const [newVenueCity, setNewVenueCity] = useState('');
   const [newVenueZip, setNewVenueZip] = useState('');
@@ -184,11 +185,11 @@ export default function RequestPublic() {
         <section style={s.section}>
           <h2 style={s.sectionTitle}>Describe Your Venue</h2>
           <div style={s.fieldGroup}>
-            <label style={s.label}>Search by name, address, city, or zip</label>
+            <label style={s.label}>Search for your venue</label>
             <div style={s.searchWrapper}>
               <input
                 type="text"
-                placeholder="e.g. Rancho Bernardo Library, Poway, 92128"
+                placeholder="Search by name, address, city, or zip"
                 value={venueQuery}
                 onChange={(e) => handleVenueInputChange(e.target.value)}
                 onFocus={() => setShowVenueSuggestions(true)}
@@ -221,6 +222,12 @@ export default function RequestPublic() {
           {isNewVenue && (
             <div style={s.newVenueForm}>
               <div style={s.newVenueHeading}>New Venue</div>
+              <div style={s.fieldGroup}>
+                <label style={s.label}>Venue Name</label>
+                <input type="text" value={newVenueName}
+                  onChange={(e) => setNewVenueName(e.target.value)}
+                  placeholder="e.g. Poway Community Center, First Baptist Church" style={s.input} />
+              </div>
               <div style={s.fieldGroup}>
                 <label style={s.label}>Street Address</label>
                 <input type="text" value={newVenueStreet}
